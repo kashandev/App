@@ -1,0 +1,42 @@
+
+        /* Base styles for large screens */
+
+
+       /* Login Css*/
+        
+  /* File Upload Css*/
+
+.image-upload>input {
+
+    display: none;
+
+}
+
+  i.fa.fa-upload.upload-button {
+
+    position: relative;
+
+    font-size: 1em;
+
+}
+
+.image-error {
+
+    position: relative;
+
+    left: 2px;
+
+    margin: auto;
+
+}
+
+.image-input-error{
+
+  position: relative;
+
+  left: 15px;
+
+}
+.message {
+  resize: none;
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <meta http-equiv="Content-Language" content="en">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="mobile-web-app-capable" content="yes">
+      <meta name="HandheldFriendly" content="false">
+      <meta name="MobileOptimized" content="320">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css" rel="stylesheet">
+      <title>Email App - Signup</title>
+      <style>
+         .form-container {
+            margin-top: 50px; /* Adjust top margin as needed */
+            margin-bottom: 50px; /* Adjust bottom margin as needed */
+         }
+      </style>
+   </head>
+   <body class="bg-light d-flex align-items-center justify-content-center vh-100">
+      <div class="card shadow p-4 form-container" style="max-width: 600px; width: 100%;">
+         <div class="text-center mb-4">
+            <h4 class="fw-bold">Sign Up Here</h4>
+         </div>
+         <form method="post">
+            <div class="row g-3">
+               <div class="col-md-6">
+                  <div class="mb-3">
+                     <label for="first_name" class="form-label">First Name</label>
+                     <div class="input-group">
+                        <span class="input-group-text" id="first_name-addon"><i class="fas fa-user"></i></span>
+                        <input type="text" class="form-control" id="first_name" placeholder="Enter your First Name" aria-describedby="first_name-addon">
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="mb-3">
+                     <label for="last_name" class="form-label">Last Name</label>
+                     <div class="input-group">
+                        <span class="input-group-text" id="last_name-addon"><i class="fas fa-user"></i></span>
+                        <input type="text" class="form-control" id="last_name" placeholder="Enter your Last Name" aria-describedby="last_name-addon">
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="mb-3">
+                     <label for="username" class="form-label">Username</label>
+                     <div class="input-group">
+                        <span class="input-group-text" id="username-addon"><i class="fas fa-user"></i></span>
+                        <input type="text" class="form-control" id="username" placeholder="Enter your Username" aria-describedby="username-addon">
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="mb-3">
+                     <label for="email" class="form-label">Email</label>
+                     <div class="input-group">
+                        <span class="input-group-text" id="email-addon"><i class="fas fa-envelope"></i></span>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your Email" aria-describedby="email-addon">
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="mb-3">
+                     <label for="password" class="form-label">Password</label>
+                     <div class="input-group">
+                        <span class="input-group-text" id="password-addon"><i class="fas fa-lock"></i></span>
+                        <input type="password" class="form-control" id="password" placeholder="Enter your Password" aria-describedby="password-addon">
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="mb-3">
+                     <label for="confirm_password" class="form-label">Confirm Password</label>
+                     <div class="input-group">
+                        <span class="input-group-text" id="confirm_password-addon"><i class="fas fa-lock"></i></span>
+                        <input type="password" class="form-control" id="confirm_password" placeholder="Confirm your Password" aria-describedby="confirm_password-addon">
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-12">
+                  <div class="mb-3">
+                     <label for="mobile" class="form-label">Mobile</label>
+                     <div class="input-group">
+                        <span class="input-group-text" id="mobile-addon"><i class="fas fa-phone"></i></span>
+                        <input type="tel" class="form-control" id="mobile" placeholder="Enter your Number" aria-describedby="mobile-addon">
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="d-grid">
+               <input type="button" class="btn btn-primary" value="Sign Up">
+            </div>
+         </form>
+         <div class="text-center mt-3">
+            <span>Already have an account? <a href="#" class="text-decoration-none">Login</a></span>
+         </div>
+      </div>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/in tl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+      <script>
+         $(document).ready(function() {
+            const mobileInput = document.querySelector("#mobile");
+            intlTelInput(mobileInput, {
+               initialCountry: "auto",
+               geoIpLookup: function(callback) {
+                  $.get("https://ipinfo.io?token=YOUR_TOKEN_HERE", function(response) {
+                     callback(response.country);
+                  }).fail(function() {
+                     callback("us");
+                  });
+               },
+               utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+            });
+         });
+      </script>
+   </body>
+</html>

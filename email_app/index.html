@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Email - App</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <meta http-equiv="Content-Language" content="en">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="mobile-web-app-capable" content="yes">
+      <meta name="HandheldFriendly" content="false">
+      <meta name="MobileOptimized" content="320">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="assets/css/custom.css">
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="assets/js/app.js"></script>
+   </head>
+   <body class="bg-light d-flex align-items-center justify-content-center vh-100">
+      <div class="card shadow p-4" style="max-width: 300px; width: 100%;">
+      <div class="text-center mb-4">
+         <h4 class="fw-bold">Email Form</h4>
+      </div>
+      <form action="#">
+         <div class="mb-3 mt-3">
+            <label for="email" class="form-label">Company Name:</label>
+            <input type="company" class="form-control company" id="company" name="company" placeholder="Enter Company" required /> 
+         </div>
+         <div class="mb-3 mt-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control email" id="email" name="email" placeholder="Enter Email" required /> 
+         </div>
+         <div class="mb-3 mt-3">
+            <label for="message">Message:</label>
+            <textarea class="form-control message" rows="5" id="message" name="message" placeholder="Enter Your Message Criteria" required></textarea>
+         </div>
+         <div class="icon row">
+            <div class="col-md-12" align="center">
+               <label for="file" class="l-text">
+                  Select Excel File For Send Email
+                  <div class="image-upload">
+                     <i class="fas fa-upload upload-button btn btn-primary"></i>
+               </label>
+               <input type="file" name="file" id="file" class="btn btn-info form-control file" >
+               <div class="input-error">
+               <div class="image-input-error"></div>
+               </div>
+               </div>
+            </div>
+            <div class="mb-3 mt-3">
+               <button type="button" class="btn btn-primary"><i class="fas fa-paper-plane" aria-hidden="true"></i></button>
+            </div>
+      </form>
+      </div>
+      <body>
+</html>
