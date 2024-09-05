@@ -1,0 +1,199 @@
+.custom_menus {
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid #ddd;
+    -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.05);
+	-webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.05);
+	-ms-box-shadow: 0 0 2px rgba(0, 0, 0, 0.05);
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+	margin-top:15px;
+    padding: 10px 15px 6px;
+}
+.crt_new{
+	font-size: 14px;
+    margin-bottom: 0;
+    margin-top:0;
+    padding-bottom: 0px;
+    padding-top: 4px;
+}
+.crt_new a {
+    margin-left: 5px;
+}
+.crt_cus{
+	padding-top:4px !important;
+}
+.custom_menus button{
+	margin-top: 0;
+    padding: 4px 0;
+    width: 6%;
+}
+.custom_menus .form-control{
+	height:28px;
+	padding:2px 8px 1px;
+}
+.custom_menus .control-label {
+    text-align: left;
+	padding-bottom:0;
+}
+
+.cust_search {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+.cust_search input{
+	width:85%;
+}
+.cust_search a{
+	float: right;
+    margin-top: -34px !important;
+}
+.nestable .dd-handle{
+	background: repeat scroll 0 0 #f3f4f5;
+	color:#555;
+}
+.dd-item .btn{ color:#000;}
+.nestable .dd-handle:hover{
+	background: repeat scroll 0 0 #fff;
+	/* color:#12aaeb; */
+	text-decoration:none;
+}
+.nestable .dd-handle a{
+	background: repeat scroll 0 0 #f3f4f5;
+	color:inherit;
+}
+.nestable .dd-handle a:hover{
+	background: repeat scroll 0 0 #efefef;
+	color:inherit !important;
+	text-decoration:none;
+}
+.menu_name {
+    font-size: 14px !important;
+    line-height: 11px;
+    padding-top: 0;
+    padding: 12px 0px 0 0 !important;
+    text-align: left !important;
+}
+.menu_name_display {
+
+font-weight: 400;
+
+display: inline-block;
+
+width: 74%;
+
+margin-left: 3%;
+}
+.toggle_body{
+	border:1px solid #ccc;
+	border-top:none;
+	margin-top:-11px;
+	margin-bottom:10px;
+	min-height:85px;
+	height:auto;
+	overflow:auto;
+    padding: 10px 0;
+	width:100%;
+	
+}
+.toggle_body input {
+    margin-left: -15px;
+	height:32px;
+}
+.updte_btn {
+    margin-left: -50px;
+    margin-top: 0;
+    padding: 2px 12px;
+}
+.crt_role{
+}
+
+.toggle_inner{
+	margin-bottom:10px;
+}
+.togle_cus{
+	width:60%;
+}
+.togle_head .panel-tools {
+    margin-top: -4px;
+}
+.togle_nav {
+    margin-bottom: 5px;
+    margin-left: -10px;
+    margin-top: 5px;
+    padding: 0;
+}
+.togle_nav li {
+    border-right: 1px solid;
+    display: inline;
+    padding: 0;
+}
+.togle_nav li a {
+    padding: 0 10px;
+}
+.togle_nav li a:hover {
+	text-decoration:none;
+}
+.togle_nav li:last-child {
+	border-right:0;
+}
+.togle_margin{
+	margin-left:35px;
+}
+.menu_tab{
+	padding: 0;
+}
+.bottom-action {
+    border-top: 1px solid #eee;
+    margin: 10px 0 0;
+    padding: 15px 0 0;
+}
+.menu_tab_main{
+	margin-bottom:0 !important;
+}
+.menu_builder_head{
+	margin:0; 
+}
+
+
+.menu_builder_tp_heading {
+    height: 45px;
+    padding: 17px 12px;
+}
+.menu_builder_tp_heading p {
+    font-size: 16px;
+    font-weight: 600;
+    padding-top: 5px;
+}
+.menu_rite_main {
+    padding: 16px 0;
+}
+.menu_builder_tp_heading .panel-tools {
+    top: 12px;
+}
+.cus_pan{
+	top:5px;
+}
+.dd-item .panel-tools{
+	top: -3px;
+	display: block;
+	right: 0;
+}
+.togle_inner_field {
+    line-height: 20px;
+    padding-bottom: 10px;
+}
+.togle_inner__input_field{
+	margin:0 !important;
+}
+.role_panel_label{
+    line-height: 4px;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.menu_top_field{
+	margin-left:-35px;
+}
+.dd-handle input[type="checkbox"] {
+    float: left;
+    margin-right: 10px;
+}

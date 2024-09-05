@@ -1,0 +1,50 @@
+.main-header a {
+    background-color: #e95924 !important;
+}
+.navbar{
+    background-color: #e95924 !important;
+}
+.skin-blue .sidebar-menu>li>a:hover, .skin-blue .sidebar-menu>li.active>a {
+    border-left-color: #e95924 !important;
+}
+.fc-day-grid-event>.fc-content {
+    white-space: nowrap;
+    overflow: hidden;
+    background: #132f54;
+    color: #fff;
+    padding: 10px;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    background-color: #e95924 !important;
+    border-color: #e95924 !important;
+}
+.main-footer {
+    background: #e95924 !important;
+    padding: 15px;
+    color: #fff !important;
+    border-top: 1px solid #eee;
+}
+.main-footer a {
+    color: #132f54 !important;
+}
+.main-footer a:hover, .main-footer a:active, .main-footer a:focus {
+    outline: none;
+    text-decoration: none;
+    color: #132f54 !important;
+}
+.dropdown-menu>li>a:hover {
+    background: rgba(19, 47, 84, 0.3) !important;
+}
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
+    background-color: rgba(19, 47, 84, 1) !important;
+}
+a.btn.btn-default.btn-flat {
+    color: white!important;
+}
+a.btn.btn-default.btn-flat:hover {
+    color: black!important;
+}
+.bootstrap-select .dropdown-menu li a.selected {
+    background: #132f54 !important;
+    color: #fff;
+}

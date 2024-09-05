@@ -1,0 +1,350 @@
+
+h5.htxt {
+    font-weight: 600;
+}
+#success-d  {
+    display:none;
+    margin: 5px;
+    background: white;
+    border: 3px solid #FF8B02;
+    height: auto;
+    position: fixed;
+    z-index: 999;
+    left: 50% !important;
+    transform: translateX(-50%);
+    width: 400px;
+    top: 300px;
+    font-size: x-large;
+}
+
+.sub-btns {
+    display: flex;
+    justify-content: space-around;
+    gap: 0px;
+    margin: 20px 7px;
+}
+
+#icon-s {
+    color: #089000 !important;
+}
+
+button.btn.cancel {
+    background: white !important;
+    border: 2px solid #FF8B02;
+    padding: 6px 50px !important;
+    font-size: 18px;
+    text-transform: uppercase;
+    border-radius: 22px !important;
+    color: #000 !important;
+}
+
+.txt {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 0px 20px;
+    font-size: 20px;
+    margin-top: 10px;
+}
+div#success-d .ebay{
+    text-align: center;
+    background: #089000;
+    padding: 18px;
+    color: white;
+    margin: 0px;
+}
+
+section#first {
+    width: 100%;
+    float: left;
+}
+
+.top h3 {
+    font-size: 18px;
+    font-weight: 100;
+    font-family: sans-serif;
+    color: white;
+}
+.top {
+    background-color: rgba(255, 255, 255, .15);
+    border-radius: 20px;
+    margin-bottom: 180px;
+    margin-top: 200px;
+    box-shadow: 0px 0px 16px 0px;
+    border-radius: 20px;
+    padding: 30px 80px;
+}
+.top-up h1 {
+    font-size: 20px;
+    font-weight: 600;
+}
+.top h4 {
+    color: white;
+}
+.top-up {
+    text-align: center;
+    background: #fff;
+    box-shadow: 0px 2px 3px 0px;
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+input.Traded {
+    width: 100%;
+    padding: 10px 10px;
+margin: 10px 0 50px;}
+.btnss {
+    margin-top: 40px;
+}
+.prices {
+    text-align: center;
+}
+
+
+   button.pricebtn:focus {
+    outline: none;
+    background: #FF8B02;
+    color: #000;
+}
+
+button.pricebtn {
+    width: 50%;
+    border: none;
+    background: #000;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+input.copytxt {
+    width: 90%;
+    padding: 10px 10px;
+    border: none;
+    background-color: darkgrey;
+}
+.top button.btn {
+    background: #FF8B02;
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px 20px;
+    margin-bottom: 3px;
+}
+.down {
+    border-bottom: 1px solid #c7c7c7;
+    padding: 20px 0;
+}
+.imgearea p span {
+    color: #fff;
+    padding-right: 10px;
+}
+
+.imgearea p {
+    color: #ed0000;
+    font-size: 15px;
+}
+.imgearea {
+    margin: 40px 0;
+}
+.custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  .custom-file-input::before {
+    content: 'Upload your transaction certificate';
+    display: inline-block;
+    background: #110863;
+    border-radius: 3px;
+    color: white;
+    padding: 40px 50px;
+    font-weight: 700;
+    font-size: 15px;
+}
+  .custom-file-input:hover::before {
+    border-color: black;
+  }
+  .custom-file-input:active::before {
+    background: -webkit-linear-gradient(180deg, #e3e3e3, #f9f9f9);
+  }
+  .chooseimg {
+    width: 40%;
+    margin: 0 auto;
+}
+.custom-file-input {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 200px;
+    margin: 0 auto;
+    text-align: center;
+    opacity: 1;
+border-radius: 6px;
+}
+button.confirm {
+    padding: 20px 90px;
+    align-items: center;
+    margin:0px;
+    background: #FF8B02;
+    color: #fff;
+    font-size: 20px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 50px;
+}
+.conbtn {
+    width: 40%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Top Up Method Page */
+.topmethod{
+    background-color: rgba(255, 255, 255, .15);
+    border-radius: 20px;
+    margin-bottom: 180px;
+    margin-top: 200px;
+    box-shadow: 0px 0px 16px 0px;
+    border-radius: 20px;
+    padding: 30px 80px;
+    height: 400px;
+}
+section#topupmethod .topmethod h3 {
+    text-align: center;
+    color: white;
+    font-size: 25px;
+}
+.flexy label {
+    color: white;
+    font-size: 25px;
+    font-family: inherit;
+}
+.flexy {
+    display: flex;
+    gap: 60px;
+    flex-direction: column;
+}
+.hash {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .hash input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .hash:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .hash input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .hash input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .hash .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+.btn.next {
+    float: right;
+    background: orange;
+    color: white;
+    font-size: 30px;
+    padding: 4px 60px;
+}
+
+
+@media only screen and (max-width: 768px) {
+   
+   #success-d{
+    width: 350px;
+   }
+
+   button.pricebtn:focus {
+    outline: none;
+    background: #FF8B02;
+    color: #000;
+}
+
+input.copytxt {
+    width: 80%;
+    padding: 10px 10px;
+    border: none;
+    background-color: darkgrey;
+}
+ .topmethod{
+    padding: 30px 30px;
+ }
+.topmethod h3 {
+    font-size: 20px !important;
+}
+
+label.hash {
+    font-size: 18px;
+}
+input#copytxt {
+    font-size: 9px;
+}
+button.btn.btn-copy {
+    float: right;
+    width: 17%;
+}
+.top button.btn {
+    background: #FF8B02;
+    color: #fff;
+    border-radius: 8px;
+    padding: 5px 0px;
+    margin-bottom: 3px;
+    margin-left: 5px;
+}
+input#trad::placeholder {
+    font-size: 11px;
+}
+}
+
+

@@ -1,0 +1,129 @@
+.nav-tabs {
+    margin-bottom: 0;
+    margin-left: 0;
+    position: relative;
+    border: 1px solid #cccccc !important;
+    background: #f5f5f5;
+}
+
+
+.tabs-left > .nav-tabs > li.active > a, .tabs-left > .nav-tabs > li.active > a:focus, .tabs-left > .nav-tabs > li.active > a:hover {
+    border-left: 4px solid #089000;
+    margin: 0 0;
+}
+
+
+.tabs-left > .nav-tabs > li > a, .tabs-left > .nav-tabs > li > a:focus, .tabs-left > .nav-tabs > li > a:hover {
+    border: 0px;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    border-bottom: 0px;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    border: 0px;
+    border-bottom: #089000 3px solid;
+    color: #089000;
+}
+
+.nav-tabs > li > a:hover, .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    line-height: inherit !important;
+}
+
+.tabs-left > .nav-tabs > li > a, .tabs-left > .nav-tabs > li > a:focus, .tabs-left > .nav-tabs > li > a:hover {
+    border-color: #DDDDDD;
+    margin: 0 -1px 0 0;
+}
+
+.tabs-left > .nav-tabs > li > a, .tabs-right > .nav-tabs > li > a {
+    min-width: 60px;
+}
+
+.nav-tabs > li:first-child > a {
+    margin-left: 0;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    background-color: #FFFFFF;
+    border-color: #DDDDDD #DDDDDD transparent;
+    border-top: 2px solid #DDDDDD;
+    color: #333333;
+    line-height: 15px;
+    z-index: 12;
+    margin-left: 0px !important;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: #555;
+    cursor: default;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: #555;
+    cursor: default;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+}
+
+.nav-tabs > li > a, .nav-tabs > li > a:hover, .nav-tabs > li > a:focus {
+    border: 0px;
+}
+
+.nav-tabs > li > a {
+    border: 0px;
+    background: none;
+    color: #222222;
+    margin-right: 2px;
+    line-height: 1.42857143;
+    letter-spacing: 0px;
+    border-radius: 0px 0px 0 0;
+}
+
+.nav-tabs > li > a, .nav-tabs > li > a:hover, .nav-tabs > li > a:focus {
+    border: 0px;
+    border-bottom: #089000 3px solid;
+    color: #089000;
+    background-color: #fff;
+    line-height: inherit !important;
+}
+
+.nav-tabs > li > a {
+    border-bottom: 4px solid transparent;
+}
+
+.nav-tabs > li > a {
+    border-bottom: 4px solid transparent;
+}
+
+.nav-tabs>li>a {
+    margin-right: 2px;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+}
+
+.tabs-left .tab-content, .tabs-right .tab-content {
+    overflow: auto;
+}
+
+.tab-content {
+    padding: 20px 0 0 0;
+}
+
+.tabbable {
+    background: #fff;
+}
+
+.tabbable {
+    margin-bottom: 15px;
+}
+
+.tabbable.tabs-left {
+    min-height: 500px;
+    border: 0px;
+    border-left: 1px solid #ccc;
+}
