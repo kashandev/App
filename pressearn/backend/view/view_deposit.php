@@ -134,7 +134,7 @@ if ($type == "new" && $search == "" || $search != "") {
 
 }
 
-if ($type == "comp" && $search == "" || $search != "") {
+if ($type == "app" && $search == "" || $search != "") {
 
     $all_qry =
 
@@ -146,7 +146,7 @@ if ($type == "comp" && $search == "" || $search != "") {
 
 }
 
-if ($type == "can" && $search == "" || $search != "") {
+if ($type == "rej" && $search == "" || $search != "") {
 
     $all_qry =
 
@@ -322,7 +322,7 @@ if ($type == "new" && $search == "" || $search != "") {
 
 
 
-if ($type == "comp" && $search == "" || $search != "") {
+if ($type == "app" && $search == "" || $search != "") {
 
     $all_qry = "SELECT * from deposite INNER JOIN topup_method on topup_method.tpmid = deposite.tpmid where deposite.isdeposit = 1 and deposite.isapprove = 1 order by deposite.dpid desc $limit";
 
@@ -334,7 +334,7 @@ if ($type == "comp" && $search == "" || $search != "") {
 
 
 
-if ($type == "can" && $search == "" || $search != "") {
+if ($type == "rej" && $search == "" || $search != "") {
 
     $all_qry = "SELECT * from deposite INNER JOIN topup_method on topup_method.tpmid = deposite.tpmid  where deposite.isreject = 1 order by deposite.dpid desc $limit";
 
@@ -386,7 +386,7 @@ if (mysqli_num_rows($sql)) {
 
                          <div class="row" id="button-div">  
 
-                        <div class="col-sm-8"> <button type="button" class="btn btn-primary btn-approve" disabled=""> <i class="fa fa-check"></i> Approve </button> <button type="button" class="btn btn-primary btn-dis-approve" disabled=""> <i class="fa fa-close"></i> DisApprove </button> <button type="button" id="checkAll" class="main btn btn-primary btn-check"> <span class="sub"></span> <i class="fa fa-check"></i> Check </button> <button type="button" id="uncheckAll" class="main btn btn-primary btn-uncheck"> <span class="sub"></span> <i class="fa fa-check"></i> UnCheck </button>
+                        <div class="col-sm-8"> <button type="button" class="btn btn-primary btn-approve" disabled=""> <i class="fa fa-check"></i> Approve </button> <button type="button" class="btn btn-danger btn-reject" disabled=""> <i class="fa fa-close"></i> Reject </button> <button type="button" id="checkAll" class="main btn btn-primary btn-check"> <span class="sub"></span> <i class="fa fa-check"></i> Check </button> <button type="button" id="uncheckAll" class="main btn btn-primary btn-uncheck"> <span class="sub"></span> <i class="fa fa-check"></i> UnCheck </button>
 
                       </div>
 
@@ -395,6 +395,26 @@ if (mysqli_num_rows($sql)) {
                     
 
                     <?php } ?>
+
+
+
+<?php if ($type == "app") { ?>
+
+
+
+<div class="row" id="button-div">  
+
+<div class="col-sm-8">  <button type="button" class="btn btn-danger btn-reject" disabled=""> <i class="fa fa-close"></i> Reject </button> <button type="button" id="checkAll" class="main btn btn-primary btn-check"> <span class="sub"></span> <i class="fa fa-check"></i> Check </button> <button type="button" id="uncheckAll" class="main btn btn-primary btn-uncheck"> <span class="sub"></span> <i class="fa fa-check"></i> UnCheck </button>
+
+</div>
+
+</div>
+
+
+
+<?php } ?>
+
+
 
   <table class="table table-striped table-bordered new-table" id="table">                    
 
@@ -428,7 +448,7 @@ if (mysqli_num_rows($sql)) {
 
 
 
-                                <?php } elseif ($type == "can") { ?>
+                                <?php } elseif ($type == "rej") { ?>
 
                                     <thead>
 
@@ -461,6 +481,7 @@ if (mysqli_num_rows($sql)) {
                                   <thead>
 
                                        <tr>
+                                          <th>Check</th>
 
                                           <th>User</th>
 
@@ -570,11 +591,11 @@ if (mysqli_num_rows($sql)) {
 
 
 
-       if ($isnew == 1) {
+       if ($isnew == 1  ) {
 
            $thisstatus =
 
-               '<strong style="color:#4285F4!important;">Pending</strong>';
+               '<strong style="color:#DB4473!important;">Pending</strong>';
 
            $thischeckaction =
 
@@ -606,7 +627,29 @@ if (mysqli_num_rows($sql)) {
 
                '<strong style="color:#089000!important;">Approved</strong>';
 
-           $thischeckaction = "";
+               $thischeckaction =
+
+               '<input type="checkbox" class="dpid" name="dpid[]" id="dpid' .
+
+               $dpid .
+
+               '" data-id=' .
+
+               $key .
+
+               " data-uid=" .
+
+               $thisuid .
+
+               " data-deposit=" .
+
+               $deposit .
+
+               ' value="' .
+
+               $dpid .
+
+               '"/>';
 
        } elseif ($isreject == 1) {
 
@@ -650,7 +693,7 @@ if (mysqli_num_rows($sql)) {
 
            $paginationHtml .= "</tr>";
 
-       } elseif ($type == "can") {
+       } elseif ($type == "rej") {
 
            $paginationHtml .= "<tr>";
 
@@ -675,6 +718,7 @@ if (mysqli_num_rows($sql)) {
        } else {
 
            $paginationHtml .= "<tr>";
+           $paginationHtml .= "<td>" . $thischeckaction . "</td>";
 
            $paginationHtml .= "<td>" . $thisdetails . "</td>";
 

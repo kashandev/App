@@ -94,19 +94,19 @@ include_once('header.php'); // this is used for include header //
 
                               <li class="active">
 
-                                 <a href="#new" data-toggle="tab" data-id="new">New</a>
+                                 <a href="#new" data-toggle="tab" data-id="new">Pending</a>
 
                               </li>
 
                               <li>
 
-                                 <a href="#comp" data-toggle="tab" data-id="comp">Approved</a>
+                                 <a href="#app" data-toggle="tab" data-id="app">Approved</a>
 
                               </li>
 
                                 <li>
 
-                                 <a href="#can" data-toggle="tab" data-id="can">Rejected</a>
+                                 <a href="#rej" data-toggle="tab" data-id="rej">Rejected</a>
 
                               </li>
 
@@ -132,7 +132,7 @@ include_once('header.php'); // this is used for include header //
 
                               </div>
 
-                      <div class="tab-pane" id="comp">
+                      <div class="tab-pane" id="app">
 
 
 
@@ -140,7 +140,7 @@ include_once('header.php'); // this is used for include header //
 
                       <div class="col-sm-12">
 
-                        <div class="view-complete"></div>
+                        <div class="view-approve"></div>
 
                      </div>
 
@@ -150,7 +150,7 @@ include_once('header.php'); // this is used for include header //
 
 
 
-                      <div class="tab-pane" id="can">
+                      <div class="tab-pane" id="rej">
 
 
 
@@ -158,7 +158,7 @@ include_once('header.php'); // this is used for include header //
 
                       <div class="col-sm-12">
 
-                        <div class="view-cancel"></div>
+                        <div class="view-rejcel"></div>
 
 
 
@@ -244,15 +244,15 @@ function view(page = "", search = "", type = "") {
 
             }
 
-            if (type == "comp") {
+            if (type == "app") {
 
-                $(".view-complete").html(html);
+                $(".view-approve").html(html);
 
             }
 
-             if (type == "can") {
+             if (type == "rej") {
 
-                $(".view-cancel").html(html);
+                $(".view-rejcel").html(html);
 
             }
 
@@ -272,15 +272,15 @@ function view(page = "", search = "", type = "") {
 
                 }
 
-                if (type == "comp") {
+                if (type == "app") {
 
-                    $(".view-complete").html(html);
+                    $(".view-approve").html(html);
 
                 }
 
-                 if (type == "can") {
+                 if (type == "rej") {
 
-                $(".view-cancel").html(html);
+                $(".view-rejcel").html(html);
 
                  }
 
@@ -336,17 +336,17 @@ function viewkeyenter(page = "", search = "", type = "", e = "") {
 
                 }
 
-                if (type == "comp") {
+                if (type == "app") {
 
-                    $(".view-complete").html(html);
+                    $(".view-approve").html(html);
 
                 }
 
              
 
-              if (type == "can") {
+              if (type == "rej") {
 
-                $(".view-cancel").html(html);
+                $(".view-rejcel").html(html);
 
             } 
 
@@ -366,15 +366,15 @@ function viewkeyenter(page = "", search = "", type = "", e = "") {
 
                 }
 
-                if (type == "comp") {
+                if (type == "app") {
 
-                    $(".view-complete").html(html);
+                    $(".view-approve").html(html);
 
                 }
 
-                 if (type == "can") {
+                 if (type == "rej") {
 
-                $(".view-cancel").html(html);
+                $(".view-rejcel").html(html);
 
                  }
 
@@ -393,11 +393,6 @@ function viewkeyenter(page = "", search = "", type = "", e = "") {
 //end of function view on key enter //
 
 
-
-
-
-   
-
       // function disable button //
 
       function disablebutton()
@@ -410,22 +405,17 @@ function viewkeyenter(page = "", search = "", type = "", e = "") {
 
       $('.approve-btn').attr('disabled',true);
 
-      $('.dis-approve-btn').css('background-color','#dee2e6');
+      $('.reject-btn').css('background-color','#dee2e6');
 
-      $('.dis-approve-btn').css('border','1px solid #dee2e6');
+      $('.reject-btn').css('border','1px solid #dee2e6');
 
-      $('.dis-approve-btn').attr('disabled',true);   
+      $('.reject-btn').attr('disabled',true);   
 
       }
 
-      
-
       // end of function disable button //
 
-   
-
-      
-
+       
      // function enable button //
 
       function enablebutton()
@@ -438,13 +428,7 @@ function viewkeyenter(page = "", search = "", type = "", e = "") {
 
       $('.approve-btn').attr('disabled',false);
 
-      $('.dis-approve-btn').css('background-color','#089000');
-
-      $('.dis-approve-btn').css('border','1px solid #327b00');
-
-      $('.dis-approve-btn').attr('disabled',false); 
-
-      
+      $('.reject-btn').attr('disabled',false); 
 
       }
 
@@ -471,7 +455,6 @@ function viewkeyenter(page = "", search = "", type = "", e = "") {
       var msg = '';
 
       var type ='';
-
    
 
       $.ajax({
@@ -482,13 +465,13 @@ function viewkeyenter(page = "", search = "", type = "", e = "") {
 
         data:{dpid : dpid, uid : uid, aid : aid, uname : uname},
 
-        dataType:'json',
+        // dataType:'json',
 
         beforeSend:function()
 
         {
 
-         disablebutton();
+        //  disablebutton();
 
         },
 
@@ -496,33 +479,35 @@ function viewkeyenter(page = "", search = "", type = "", e = "") {
 
         { 
 
-         msg = data.msg;
+          console.log(data)
 
-         setTimeout(function()
+        //  msg = data.msg;
 
-         {
+        //  setTimeout(function()
 
-          $('.message-box').show();
+        //  {
 
-          $('.message-box').html(msg);
+        //   $('.message-box').show();
 
-          $('.message-box').fadeOut(1500);
+        //   $('.message-box').html(msg);
 
-         },400);
+        //   $('.message-box').fadeOut(1500);
+
+        //  },400);
 
    
 
-         setTimeout(function(){
+        //  setTimeout(function(){
 
-          $('#ApModal').css('display','none');  
+        //   $('#ApModal').css('display','none');  
 
-          $('new-table').find('#row'+dpid).remove();
+        //   $('new-table').find('#row'+dpid).remove();
 
-           type = $(".nav-tabs li.active a").attr("data-id");
+        //    type = $(".nav-tabs li.active a").attr("data-id");
 
-          view("","",type);
+        //   view("","",type);
 
-         },2000);
+        //  },2000);
 
    
 
@@ -536,9 +521,9 @@ function viewkeyenter(page = "", search = "", type = "", e = "") {
 
 
 
-   //function disapprove//
+   //function reject//
 
-      function disapprove(dpid='',aid='',uname='')
+      function reject(dpid='',aid='',uname='')
 
       { 
 
@@ -556,19 +541,19 @@ function viewkeyenter(page = "", search = "", type = "", e = "") {
 
       $.ajax({
 
-        url:"approve/dis-approve-deposit.php",
+        url:"reject/reject-deposit.php",
 
         method:"POST",
 
         data:{dpid : dpid, aid : aid, uname : uname},
 
-        dataType:'json',
+        // dataType:'json',
 
         beforeSend:function()
 
         {
 
-         disablebutton();
+        //  disablebutton();
 
         },
 
@@ -576,33 +561,33 @@ function viewkeyenter(page = "", search = "", type = "", e = "") {
 
         { 
 
-         msg = data.msg;
+          console.log(data)
 
-         setTimeout(function()
+        //  msg = data.msg;
 
-         {
+        //  setTimeout(function()
 
-          $('.message-box').show();
+        //  {
 
-          $('.message-box').html(msg);
+        //   $('.message-box').show();
 
-          $('.message-box').fadeOut(3000);
+        //   $('.message-box').html(msg);
 
-         },400);
+        //   $('.message-box').fadeOut(3000);
 
-   
+        //  },400);
 
-         setTimeout(function(){
+        //  setTimeout(function(){
 
-          $('#DpModal').css('display','none');  
+        //   $('#DpModal').css('display','none');  
 
-          $('new-table').find('#row'+dpid).remove();
+        //   $('new-table').find('#row'+dpid).remove();
 
-           type = $(".nav-tabs li.active a").attr("data-id");
+        //    type = $(".nav-tabs li.active a").attr("data-id");
 
-          view("","",type);
+        //   view("","",type);
 
-         },3200);
+        //  },3200);
 
    
 
@@ -612,7 +597,7 @@ function viewkeyenter(page = "", search = "", type = "", e = "") {
 
       }
 
-      // end of function disapprove //
+      // end of function reject //
 
 
 
@@ -732,13 +717,13 @@ $(document).ready(function () {
 
           $('.btn-approve').attr('disabled',false);
 
-          $('.btn-dis-approve').attr('disabled',false);   
+          $('.btn-reject').attr('disabled',false);   
 
          }else{
 
           $('.btn-approve').attr('disabled',true);
 
-          $('.btn-dis-approve').attr('disabled',true);
+          $('.btn-reject').attr('disabled',true);
 
          }   
 
@@ -760,7 +745,7 @@ $(document).ready(function () {
 
         $('.btn-approve').attr('disabled',false);
 
-        $('.btn-dis-approve').attr('disabled',false);
+        $('.btn-reject').attr('disabled',false);
 
       });
 
@@ -778,7 +763,7 @@ $(document).ready(function () {
 
         $('.btn-approve').attr('disabled',true);  
 
-        $('.btn-dis-approve').attr('disabled',true);
+        $('.btn-reject').attr('disabled',true);
 
         });
 
@@ -806,7 +791,7 @@ $(document).ready(function () {
 
 
 
-                    $('body').on('click','.btn-dis-approve',function(){
+                    $('body').on('click','.btn-reject',function(){
 
                      thismtxt ='<h3><strong class="mttxt">  Reject Deposit  </strong></h3>';
 
@@ -888,13 +873,13 @@ $(document).ready(function () {
 
 
 
-                // call disapprove function //
+                // call reject function //
 
                   var aid = '';
 
                   var uname = '';
 
-                  $('body').on('click','.dis-approve-btn',function(){
+                  $('body').on('click','.reject-btn',function(){
 
                     var dpid = [];
 
@@ -910,13 +895,13 @@ $(document).ready(function () {
 
                     if(dpid.length != 0){
 
-                      disapprove(dpid,aid,uname)
+                      reject(dpid,aid,uname)
 
                     }
 
                    });
 
-                   // end of call disapprove function //
+                   // end of call reject function //
 
 
 

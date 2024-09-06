@@ -698,61 +698,32 @@
 
       // function valid txtid //
 
-      function validtxid(txid='')
+      function validtxid(txid = '') {
 
-      {
+var txid = txid.trim();  // Trim whitespace from the input
 
-        var txid = txid;
+// Regular expression patterns
+var txnPattern = /^TXN-[0-9A-Z]{8}-[0-9A-Z]{4}-[0-9A-Z]{4}-[0-9A-Z]{4}-[0-9A-Z]{12}$/; // Pattern for TXN IDs
+var ibanPattern = /^[A-Z]{2}[0-9]{2}[A-Z0-9]{11,30}$/;  // Pattern for IBANs
+var accountPattern = /^[0-9]{8,16}$/;  // Pattern for account numbers
 
-        var hash = /\b[^>]*>([\s\S]*?)<\//gm;
-
-        var string = /^[a-zA-Z'-]+$/;
-
-        var number = /^[0-9]+$/;
-
-      
-
-        if(txid.match(hash) && txid.length == 0)
-
-        {
-
-         $('.txid-error').html("");
-
-         checkdeposit(txid);
-
-        }
-
-        else if(txid.match(string) && txid.length !=0)
-
-         {
-
-          $('.txid-error').html("");
-
-          checkdeposit(txid);
-
-         }  
-
-         else if(txid.match(number) && txid.length !=0)
-
-          {
-
-           $('.txid-error').html("");
-
-           checkdeposit(txid);
-
-          }       
-
-         else
-
-          {
-
-           $('.txid-error').html("Please enter valid (TXID/HASH)!");
-
-           disablebutton();
-
-          }
-
-      }    
+if (txid.match(txnPattern)) {
+    $('.txid-error').html("");  // Clear error message
+    checkdeposit(txid);
+} 
+else if (txid.match(ibanPattern)) {
+    $('.txid-error').html("");  // Clear error message
+    checkdeposit(txid);
+} 
+else if (txid.match(accountPattern)) {
+    $('.txid-error').html("");  // Clear error message
+    checkdeposit(txid);
+} 
+else {
+    $('.txid-error').html("Please enter a valid TXID, IBAN, or Account Number!");
+    disablebutton();  // Disable the button if validation fails
+}
+}
 
       // end of function valid txtid //
 
@@ -1003,6 +974,8 @@
       var txid = $('.txid').val();
 
       var tximg = $('.tximg').val();
+      var trimmedValue = txid.replace(/^\s+/g, '');
+      $(this).val(trimmedValue);
 
       if(txid == '' && tximg!=''){
 
