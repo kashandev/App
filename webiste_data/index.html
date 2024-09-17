@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Inquiry Details</title>
+
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Include DataTable CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
+
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Include jQuery and DataTables JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+</head>
+<body>
+
+<div class="container mt-5">
+    <table id="example" class="display table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>Website</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Country</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<script>
+$(document).ready(function() {
+    var table = $('#example').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "ajax": {
+            "url": "server_processing.php", // Your PHP file to fetch the data
+            "type": "POST"
+        },
+        "columns": [
+            { "data": "website" },
+            { "data": "name" },
+            { "data": "email" },
+            { "data": "phone" },
+            { "data": "country" },
+            {
+                "data": null,
+                "render": function (data, type, row) {
+                    console.log(data)
+                    return `<button class='btn btn-sm btn-primary edit-btn' data-id='${row.id}' title='Edit'><i class='fas fa-edit'></i></button> 
+                            <button class='btn btn-sm btn-danger delete-btn' data-id='${row.id}' title='Delete'><i class='fas fa-trash-alt'></i></button>`; 
+                }
+            }
+        ],
+        "dom": 'Bfrtip',
+        "buttons": [
+            {
+                extend: 'csv',
+                text: 'CSV',
+                title: 'Website Inquiry Details',
+                exportOptions: {
+                    columns: ':not(:last-child)' // Hide the "Actions" column
+                }
+            },
+            {
+                extend: 'excel',
+                text: 'Excel',
+                title: 'Website Inquiry Details',
+                exportOptions: {
+                    columns: ':not(:last-child)' // Hide the "Actions" column
+                }
+            },
+            {
+                extend: 'pdf',
+                text: 'PDF',
+                title: 'Website Inquiry Details',
+                exportOptions: {
+                    columns: ':not(:last-child)' // Hide the "Actions" column
+                }
+            },
+            {
+                extend: 'print',
+                text: 'Print',
+                title: 'Website Inquiry Details',
+                exportOptions: {
+                    columns: ':not(:last-child)' // Hide the "Actions" column
+                }
+            }
+        ]
+    });
+
+    // Handle edit button click
+    $('#example').on('click', '.edit-btn', function () {
+        var id = $(this).data('id');
+        alert('Edit record ID: ' + id);
+        // You can load a modal to edit data here
+    });
+
+    // Handle delete button click
+    $('#example').on('click', '.delete-btn', function () {
+        var id = $(this).data('id');
+        if (confirm('Are you sure you want to delete this record?')) {
+            $.ajax({
+                url: 'delete.php', // PHP file to handle deletion
+                type: 'POST',
+                data: { id: id },
+                success: function(response) {
+                    alert('Record deleted');
+                    table.ajax.reload(); // Refresh table after deletion
+                }
+            });
+        }
+    });
+
+    // Optional: Handle real-time updates or other actions
+});
+</script>
+
+</body>
+</html>
