@@ -1,0 +1,308 @@
+* {
+    margin: 0 auto;
+    padding: 0 auto;
+}
+body {
+    background: #f1f1f1;
+}
+.sum-box{
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    top: 140px;
+    float: left;
+    width: 129%;
+}
+.sum-box li {
+    float: left;
+    border: 1px solid #ccc;
+    background: #fff;
+    text-align: center;
+    width: 16%;
+    height: 121px;
+    padding: 27px;
+    margin-left: 102px;
+    font-size: 15px;
+    list-style: none;
+}
+.sum-box2{
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    top: 172px;
+    width: 100%;
+}
+.sum-box2 li {
+    float: right;
+    border: 1px solid #ccc;
+    background: #fff;
+    text-align: center;
+    width: 23%;
+    height: 121px;
+    padding-top: 35px;
+    font-size: 15px;
+    list-style: none;
+}   
+.mycontainer {
+    width: 1823px;
+}
+.top-heading {
+    position: relative;
+    top: 100px;
+    left: 35px;
+    float: left;
+}
+.sec-box {
+    float: left;
+    width: 100%;
+    display: inherit;
+    position: relative;
+    top: 260px;
+}
+
+.box {
+    width: 30%;
+    background: #fff;
+    display: inline-block;
+    height: 400px;
+    width: 96%;
+}
+section.box-section {
+    float: left;
+    width: 100%;
+}
+section.summary {
+    float: left;
+    width: 100%;
+    position: relative;
+    top: 20px;
+}
+.sum-box h3 {
+    font-size: 15px;
+}
+.sec-box h3 {
+    font-size: 15px;
+}
+.sec-box1 {
+    float: left;
+    width: 100%;
+    display: inherit;
+    position: relative;
+    top: 260px;
+}
+
+.box {
+    width: 30%;
+    background: #fff;
+    display: inline-block;
+    height: 400px;
+    width: 99%;
+}
+section.box-section1 {
+    float: left;
+    width: 100%;
+    padding-top: 50px;
+}
+.sec-box1 h3 {
+    font-size: 15px;
+}
+section.box-section2 {
+    float: left;
+    width: 100%;
+    padding-top: 50px;
+}
+.sec-box2 {
+    float: left;
+    width: 100%;
+    display: inherit;
+    position: relative;
+    top: 260px;
+}
+.sec-box2 h3 {
+    font-size: 15px;
+    position: relative;
+    z-index: 1;
+}
+thead tr th {
+    font-size: 15px;
+    font-weight: 500;
+    position: relative;
+    bottom: 12px;
+    
+}
+
+thead {
+    background: #f1f1f1;
+    border: 1px solid #fff;
+    height: 60px;
+
+}
+section.box-section3 {
+    float: left;
+    width: 100%;
+    padding-top: 50px;
+}
+.sec-box3 {
+    float: left;
+    width: 100%;
+    display: inherit;
+    position: relative;
+    top: 260px;
+}
+.sec-box3 h3 {
+    font-size: 15px;
+    position: relative;
+    z-index: 1;
+}
+section.box-section4 {
+    float: left;
+    width: 100%;
+    padding-top: 50px;
+}
+.sec-box4 {
+    float: left;
+    width: 100%;
+    display: inherit;
+    position: relative;
+    top: 260px;
+}
+.sec-box4 h3 {
+    font-size: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.top-heading h2 {
+    font-size: 32px;
+}
+.sum-box h3 {
+    font-size: 20px;
+}
+
+section.catalog {
+    float: left;
+    width: 100%;
+    position: relative;
+    top: 150px;    
+}
+.myheader h3{
+    font-size: 32px;
+}
+.search-bar{ 
+    position:relative;
+     width: 70%; 
+     margin:0px auto;
+}
+.search-bar a{
+    display: inline-block;
+    width: 37px;
+    height: 33px;
+    color: #ddd;
+    font-size: 18px;
+    text-align: center;
+    padding-top: 12px;
+    position: absolute;
+    right: 0;
+    top: -5px;
+}
+.myheader input {
+    background-color: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 0 0 0 0 !important;
+    color: #222222;
+    line-height: 1.2;
+    padding: 11px 4px;
+    transition-duration: 0.1s;
+    box-shadow: none;
+    width: 100%;
+    font-size: inherit;
+}
+select.form-control {
+    background-color: #FFFFFF;
+    border: 1px solid #D5D5D5;
+    color: #858585;
+    box-shadow: none;
+    padding: 0px;
+    height: 38px;
+}
+section.panel {
+    float: left;
+    width: 100%;
+    position: relative;
+    top: 200px;
+    background: #f1f1f1;
+}
+.psheading {
+    font-size: 22px;
+    padding-left: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+a.my.btn.btn-primary.btn-sm {
+    background-color: #089000;
+    border-color: #327b00;
+    color: #fff;
+}
+a.my.btn.btn-primary.btn-sm:hover {
+    color: #fff !important;
+    background-color: #327b00;
+    border-color: #327b00;
+    opacity: 0.9;
+}
+a.my.btn.btn-primary.btn-sm:active{
+    color: #fff !important;
+    background-color: #327b00;
+    border-color: #327b00;
+    opacity: 0.9;
+}
+.bg-white {
+    width: 25%;
+    background: #fff;
+    height: 500px;
+    float: left;
+}
+.table-action tr>td:last-child, .table-action tr>th:last-child{
+    text-align: center
+    ;width: 120px;
+}
+.table-action tr>td:last-child a{
+    display: inline-block;
+    padding: 0 4px;
+}
+.table>tbody>tr>td:nth-child(1) a, .table>tbody>tr>td:nth-child(2) a{
+    color: #089000 ;
+}
+.product-item-details h3 {
+    font-size: 15px;
+}
+
+tr.c_0 td {
+    padding: 15px 8px;
+    vertical-align: middle;
+}
+.catalog-table tr td .item-options{
+    float:left;
+    width:50%;
+    font-size: 12px;
+}
+.catalog-table tr td h3 a{
+    color:#000;
+    font-weight: 600;
+}
+.catalog-table tr td.item{ 
+    width:165px;
+}
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+a.my.btn.dropdown-toggle.btn-sm.over_dlt_btn {
+    border: 1px solid;
+}
+select.form-select {
+    padding: 12px 0 12px 0;
+    font-size: 15px;
+}

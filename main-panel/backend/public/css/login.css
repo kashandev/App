@@ -1,0 +1,131 @@
+.allogo img {
+    width: 100px;
+    margin-right: 20px;
+    margin-top: 30px;
+}
+
+
+.success-message-div {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    text-align: center;
+    display: none;
+}
+
+.error-message-div{
+position: fixed;
+top:0px;
+right: 0px;
+text-align: center;
+display: none;
+}
+
+.login-success {
+    color: #4285F4!important;
+    font-weight: bold!important;
+    font-size: 14px;
+    
+}
+
+.login-error{
+
+  color: red!important;
+
+  font-weight: bold!important;
+
+  position:absolute;
+
+  font-size:13px;
+
+}
+
+.signout-message-div {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    text-align: center;
+    display: none;
+}
+
+.alert.alert-success {
+    color: #fff!important;
+    background-color: #4285F4;
+    border-color: #4285F4;
+}
+
+.backimg {
+    background: url(../images/logo/LoginVisual.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top right;
+    height: 100vh;
+    overflow:hidden;
+}
+.mycontainer {
+    width: 1800px;
+    margin: 0 auto;
+}
+section.logo {
+    float: left;
+    width: 100%;
+    margin-top: 30px;
+}
+section.loginform {
+    float: left;
+    width: 100%;
+}
+.form-group {
+    margin: 20px 0 0 0;
+}
+
+.form-group.text-right {
+    float: right;
+}
+.form-action.text-center {
+    padding-top: 10px;
+}
+.form-actions {
+    margin: 50px 0 0 0;
+    text-align: center;
+    background: #ffb800;
+}
+
+form {
+    padding-top: 200px;
+}
+section.footer {
+    float: left;
+    width: 100%;
+}
+.copyright h6 {
+    font-size: 14px;
+    padding-top: 50px;
+}
+.copyright a {
+    color: #ffb800;
+}
+.copyright a:hover {
+    color: #000;
+}
+
+@media screen and (max-width: 768px) {
+    .backimg {
+        background-size: cover;
+        background-position: center left;
+        height: 100vh;
+        overflow:hidden;
+    }
+    .allogo img {
+        padding-left: 15px;
+    }
+    .copyright h5 {
+        padding-right: 50px;
+    }
+    form {
+    padding-top: 100px;
+}
+}
+button.btn.btn-bricky.btn-block.login-btn {
+    width: 100%;
+}

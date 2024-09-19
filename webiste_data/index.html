@@ -4,130 +4,229 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website Inquiry Details</title>
-
+    
     <!-- Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-    <!-- Include DataTable CSS -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
-
-    <!-- Include Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <!-- Include jQuery and DataTables JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light background */
+        }
+        .container {
+            background-color: #ffffff; /* White container */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #loadingSpinner {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .btn-danger {
+            background-color: #dc3545; /* Bootstrap danger color */
+            border: none;
+        }
+        .btn-danger:hover {
+            background-color: #c82333; /* Darker on hover */
+        }
+        .btn-outline-secondary {
+            color: #6c757d;
+        }
+        .btn-outline-secondary:hover {
+            background-color: #e2e6ea; /* Light gray on hover */
+        }
+        .table-responsive {
+            margin-top: 20px;
+        }
+        @media (max-width: 576px) {
+            #pagination {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .pagination {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
 
 <div class="container mt-5">
-    <table id="example" class="display table table-striped table-bordered" style="width:100%">
-        <thead>
-            <tr>
-                <th>Website</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Country</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-    </table>
+    <h2 class="mb-4 text-center">Website Inquiry Details</h2>
+    
+    <div class="mb-3">
+        <div class="input-group">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search..." />
+            <div class="input-group-append">
+                <button id="clearButton" class="btn btn-outline-secondary">
+                    <i class="fas fa-times-circle"></i> Clear
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="recordInfo" class="mb-3 text-center"></div>
+    
+    <div id="loadingSpinner" class="text-center">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table id="inquiryTable" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Website</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Country</th>
+                    <th>Message</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamic content will be loaded here -->
+            </tbody>
+        </table>
+    </div>
+    
+    <div id="pagination" class="mt-3 d-flex justify-content-between align-items-center">
+        <div>
+            <button id="prevPage" class="btn btn-secondary">Previous</button>
+            <button id="nextPage" class="btn btn-secondary">Next</button>
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination" id="pageNumbers"></ul>
+        </nav>
+        <span id="currentPageInfo"></span>
+    </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
-$(document).ready(function() {
-    var table = $('#example').DataTable({
-        "processing": true,
-        "serverSide": true,
-        "ajax": {
-            "url": "server_processing.php", // Your PHP file to fetch the data
-            "type": "POST"
+let currentPage = 1;
+let totalPages = 1; // Initialize totalPages
+const recordsPerPage = 10;
+
+// Helper function to display a value or '----' if undefined
+function displayValue(value) {
+    return typeof value === 'undefined' ? '----' : value;
+}
+
+function loadTableData(page, searchValue = '') {
+    $('#loadingSpinner').show(); // Show loading spinner
+    $('#recordInfo').hide(); // Hide record info during loading
+    $.ajax({
+        url: 'server_processing.php',
+        type: 'POST',
+        data: {
+            page: page,
+            length: recordsPerPage,
+            search: searchValue
         },
-        "columns": [
-            { "data": "website" },
-            { "data": "name" },
-            { "data": "email" },
-            { "data": "phone" },
-            { "data": "country" },
-            {
-                "data": null,
-                "render": function (data, type, row) {
-                    console.log(data)
-                    return `<button class='btn btn-sm btn-primary edit-btn' data-id='${row.id}' title='Edit'><i class='fas fa-edit'></i></button> 
-                            <button class='btn btn-sm btn-danger delete-btn' data-id='${row.id}' title='Delete'><i class='fas fa-trash-alt'></i></button>`; 
-                }
-            }
-        ],
-        "dom": 'Bfrtip',
-        "buttons": [
-            {
-                extend: 'csv',
-                text: 'CSV',
-                title: 'Website Inquiry Details',
-                exportOptions: {
-                    columns: ':not(:last-child)' // Hide the "Actions" column
-                }
-            },
-            {
-                extend: 'excel',
-                text: 'Excel',
-                title: 'Website Inquiry Details',
-                exportOptions: {
-                    columns: ':not(:last-child)' // Hide the "Actions" column
-                }
-            },
-            {
-                extend: 'pdf',
-                text: 'PDF',
-                title: 'Website Inquiry Details',
-                exportOptions: {
-                    columns: ':not(:last-child)' // Hide the "Actions" column
-                }
-            },
-            {
-                extend: 'print',
-                text: 'Print',
-                title: 'Website Inquiry Details',
-                exportOptions: {
-                    columns: ':not(:last-child)' // Hide the "Actions" column
-                }
-            }
-        ]
-    });
-
-    // Handle edit button click
-    $('#example').on('click', '.edit-btn', function () {
-        var id = $(this).data('id');
-        alert('Edit record ID: ' + id);
-        // You can load a modal to edit data here
-    });
-
-    // Handle delete button click
-    $('#example').on('click', '.delete-btn', function () {
-        var id = $(this).data('id');
-        if (confirm('Are you sure you want to delete this record?')) {
-            $.ajax({
-                url: 'delete.php', // PHP file to handle deletion
-                type: 'POST',
-                data: { id: id },
-                success: function(response) {
-                    alert('Record deleted');
-                    table.ajax.reload(); // Refresh table after deletion
-                }
+        success: function(response) {
+            const tbody = $('#inquiryTable tbody');
+            tbody.empty();
+            response.data.forEach(row => {
+                tbody.append(`
+                    <tr>
+                        <td>${displayValue(row.website)}</td>
+                        <td>${displayValue(row.name)}</td>
+                        <td>${displayValue(row.email)}</td>
+                        <td>${displayValue(row.phone)}</td>
+                        <td>${displayValue(row.country)}</td>
+                        <td>${displayValue(row.msg)}</td>
+                        <td>${displayValue(row.date)}</td>
+                        <td>
+                            <button class='btn btn-sm btn-danger delete-btn' data-id='${row.id}' title='Delete'>
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </td>
+                    </tr>
+                `);
             });
+
+            $('#currentPageInfo').text(`Showing ${response.pagination.startRecord} to ${response.pagination.endRecord} of ${response.recordsTotal} records`);
+            $('#recordInfo').show(); // Show record info
+            totalPages = response.pagination.totalPages; // Update totalPages
+            updatePagination(totalPages);
+            history.replaceState(null, '', `?page=${response.pagination.currentPage}`);
+        },
+        complete: function() {
+            $('#loadingSpinner').hide(); // Hide loading spinner
         }
     });
+}
 
-    // Optional: Handle real-time updates or other actions
+function updatePagination(totalPages) {
+    const pageNumbers = $('#pageNumbers');
+    pageNumbers.empty();
+    
+    const maxPagesToShow = 5;
+    let startPage = Math.max(1, currentPage - 2);
+    let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
+    
+    if (endPage - startPage < maxPagesToShow - 1) {
+        startPage = Math.max(1, endPage - (maxPagesToShow - 1));
+    }
+
+    for (let i = startPage; i <= endPage; i++) {
+        const activeClass = (i === currentPage) ? 'active' : '';
+        const pageButton = $(`<li class="page-item ${activeClass}"><button class="page-link" data-page="${i}">${i}</button></li>`);
+        pageButton.click(function() {
+            currentPage = i;
+            loadTableData(currentPage, $('#searchInput').val());
+        });
+        pageNumbers.append(pageButton);
+    }
+
+    // Add the last page button if there are more than 1 pages
+    if (totalPages > 1) {
+        const lastPageButton = $(`<li class="page-item"><button class="page-link" data-page="${totalPages}">${totalPages}</button></li>`);
+        lastPageButton.click(function() {
+            currentPage = totalPages;
+            loadTableData(currentPage, $('#searchInput').val());
+        });
+        pageNumbers.append(lastPageButton);
+    }
+}
+
+$('#prevPage').click(function() {
+    if (currentPage > 1) {
+        currentPage--;
+        loadTableData(currentPage, $('#searchInput').val());
+    }
 });
+
+$('#nextPage').click(function() {
+    if (currentPage < totalPages) {
+        currentPage++;
+        loadTableData(currentPage, $('#searchInput').val());
+    }
+});
+
+// Search functionality
+$('#searchInput').on('input', function() {
+    currentPage = 1; // Reset to the first page
+    loadTableData(currentPage, $(this).val());
+});
+
+// Clear search input and reload data
+$('#clearButton').click(function() {
+    $('#loadingSpinner').show(); // Show loading spinner
+    $('#searchInput').val('');
+    currentPage = 1; // Reset to the first page
+    loadTableData(currentPage);
+});
+
+// Initial load
+loadTableData(currentPage);
 </script>
 
 </body>
