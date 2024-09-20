@@ -1,0 +1,163 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,700;1,300;1,700&family=Montserrat:wght@500&family=Poppins:wght@300;400;500;600&display=swap');
+.poppins{
+font-family: 'Poppins', sans-serif;
+}
+div#content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+img.gharimg {
+    float: right;
+}
+.pdf-head {
+    text-align: center;
+    font-family: poppins;
+    font-weight: 700;
+    font-size: 8px !important;
+    text-decoration: underline;
+    margin: 20px 0px;
+}
+.logo{
+    width: 20%;
+    margin-left: 17px;
+}
+input.nonreadable {
+    width: 120px;
+    height: 16px;
+    border: 2px solid #000000;
+    background: #80808030;
+    border-radius: 0px !important;
+    padding: 8px;
+}
+
+.readfield label {
+    font-family: poppins;
+    font-size: 8px;
+    font-weight: 800;
+}
+
+.mainforms {
+    border: 3px solid #000;
+    height: 195px;
+    padding: 15px 11px;
+    margin: 0 12px;
+}
+.nonreadablemess {
+    width: 125px;
+    height: 15px;
+    border: 2px solid #000000;
+    background: #80808030;
+    border-radius: 0px !important;
+    margin: 0px 1px;
+    padding: 8px;
+}
+
+.grid-item {
+    padding: 5px;
+}
+input#address {
+    width: 280px;
+    height: 16px;
+    border: 2px solid #000000;
+    background: #80808030;
+    border-radius: 0px !important;
+    margin: 0px 1px;
+    padding: 8px;
+}
+.ref.readfield {
+    margin: -8px 0px!important;
+    height: 46px;
+}
+.urdu-content h3 {
+    text-align: center;
+}
+
+.urdu-content li {
+    list-style: none;
+    float: right;
+    text-align: right;
+font-size: 12px;
+}
+.output h4 {
+    font-size: 10px;
+    margin: 2px 0;
+}
+
+.output {
+    margin: 0 auto;
+    width: 33%;
+    float: left;
+    padding: 9px 0;
+}
+.output p {
+    font-size: 10px;
+    text-align: center;
+    padding: 0;
+    margin: 3px 0;
+}
+.output.Urdu {
+    float: right;
+    text-align: right;
+}
+.main-images h5 {
+    text-align: right;
+    padding-right: 20px;
+    margin: 0;
+}
+
+.foologo li {
+    list-style: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.foologo li img {
+    width: 55px;
+    margin-right: 20px;
+    margin-top: 30px;
+}
+
+.foologo {
+    height: 100px;
+    width: 100%;
+    float: left;
+}
+page {
+    background: white;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 0.5cm;
+    box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+  }
+
+  page[size="A4"][layout="landscape"] {
+    width: 29.7cm;
+    height: auto;    
+  }
+  page[size="A3"] {
+    width: 29.7cm;
+    height: 42cm;
+  }
+  page[size="A3"][layout="landscape"] {
+    width: 42cm;
+    height: 29.7cm;  
+  }
+  page[size="A5"] {
+    width: 14.8cm;
+    height: 21cm;
+  }
+  page[size="A5"][layout="landscape"] {
+    width: 21cm;
+    height: 14.8cm;  
+  }
+
+  @media print {
+    body, page {
+      margin: 0;
+      box-shadow: 0;   
+    }
+}

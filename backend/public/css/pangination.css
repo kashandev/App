@@ -1,0 +1,36 @@
+    .btn-danger {
+        background-color: #dc3545; /* Bootstrap danger color */
+        border: none;
+    }
+    .btn-danger:hover {
+        background-color: #c82333; /* Darker on hover */
+    }
+    .btn-outline-secondary {
+        color: #6c757d;
+    }
+    .btn-outline-secondary:hover {
+        background-color: #e2e6ea; /* Light gray on hover */
+    }
+    .table-responsive {
+        margin-top: 20px;
+    }
+    .pagination {
+        margin-top: 20px;
+    }
+    .pagination .page-item.active .page-link {
+        background-color: #007bff; /* Active page color */
+        border-color: #007bff;
+    }
+    .pagination .page-item:hover .page-link {
+        background-color: #0056b3; /* Darker on hover */
+        border-color: #0056b3;
+    }
+    @media (max-width: 576px) {
+        #pagination {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .pagination {
+            margin-bottom: 10px;
+        }
+    }
