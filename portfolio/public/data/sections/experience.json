@@ -1,0 +1,116 @@
+{
+    "locales": {
+        "en": {
+            "title": "Experience",
+            "title_long_prefix": "Summary of my",
+            "title_long": "**Work** Experience"
+        }
+    },
+
+    "articles": [
+        {
+            "id": "work",
+            "component": "ArticleTimeline",
+            "config": {},
+            "locales": {},
+
+            "items": [
+                {
+                    "icon": {
+                        "img": "images/pictures/place-7.png",
+                        "fa": "",
+                        "faColors": {"bg": null, "fill": null}
+                    },
+                    "dates": {
+                        "start": "08/08/2017",
+                        "end": "12/16/2018"
+                    },
+                    "locales": {
+                        "en": {
+                            "title": "**Intern** Developer",
+                            "info": "Vital Business System",
+                            "text": "Learned logic building and develop real state website,school management system.",
+                            "tags": ["JavaScript", "Jquery","PHP", "MySQL"]
+                        }
+                    }
+                },
+                {
+                    "icon": {
+                        "img": "",
+                        "fa": "",
+                        "faColors": {"bg": null, "fill": null}
+                    },
+                    "dates": {
+                        "start": "01/16/2019",
+                        "end": "06/16/2019"
+                    },
+                    "locales": {
+                        "en": {
+                            "title": "Junior Developer",
+                            "info": "Awan tech",
+                            "text": "Worked on enhancing the course management software and marketing website by implementing new features and improving user experience, utilizing both frontend and backend technologies to ensure seamless functionality.",
+                            "tags": ["JavaScript","Jquery","PHP","CODEIGNITER","MYSQL"]
+                        }
+                    }
+                },
+                {
+                    "icon": {
+                        "img": "",
+                        "fa": "",
+                        "faColors": {"bg": null, "fill": null}
+                    },
+                    "dates": {
+                        "start": "08/10/2020",
+                        "end": "09/30/2022"
+                    },
+                    "locales": {
+                        "en": {
+                            "title": "**Mid Level** Developer ",
+                            "info": "IT Racks / Sofxol .",
+                            "text": "Contributed to the development of robust backend systems for Builder Software third-party services and improving data processing efficiency through cloud functions.",
+                            "tags": ["JavaScript","Jquery","PHP","CODEIGNITER","MYSQL"]
+                        }
+                    }
+                },
+                {
+                    "icon": {
+                        "img": "",
+                        "fa": "",
+                        "faColors": {"bg": "#111", "fill": "#EEE"}
+                    },
+                    "dates": {
+                        "start": "10/04/2022",
+                        "end": "03/15/2024"
+                    },
+                    "locales": {
+                        "en": {
+                            "title": "**Senior ** Developer",
+                            "info": "Bharmaal System Designer.",
+                            "text": "<p>Leading a team of developers to design and implement backend solutions for Apple's services, with a focus on:</p> <ul><li>Security</li><li>Scalability to handle millions of users globally</li><li>Developing RESTful APIs</li><li>Optimizing database performance with Mysql</li><li>Building services with Php and Mysql</li></ul> ",
+                            "tags": ["JavaScript", "JQuery", "ReactJs", "PHP","YII2","MYSQL","PDF REPORTS","EXCEL REPORTS"]
+                        }
+                    }
+                },
+                {
+                    "icon": {
+                        "img": "",
+                        "fa": "",
+                        "faColors": {"bg": "#111", "fill": "#EEE"}
+                    },
+                    "dates": {
+                        "start": "03/16/2024",
+                        "end": " Present"
+                    },
+                    "locales": {
+                        "en": {
+                            "title": "Web Development Executive",
+                            "info": "Nagaria Textiles.",
+                            "text": "<p>Maintaining and implementing new features into textile software, with a focus on:</p> <ul><li>Security</li><li>Scalability to handle millions of users globally</li><li>Developing Reports</li><li>Optimizing database performance with Mysql</li></ul> ",
+                            "tags": ["JavaScript", "JQuery", "PHP","MYSQL","PDF REPORTS"]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
