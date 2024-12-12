@@ -34,7 +34,7 @@
                 {
                     "categoryId": "websites",
                     "icon": {
-                        "img": "",
+                        "img": "images/png/p1-logo.png",
                         "fa": "",
                         "faColors": {"bg": null, "fill": null}
                     },
@@ -47,11 +47,10 @@
                         "screenshots": {
                             "aspectRatio": "9:16",
                             "images": [
-                                "images/pictures/project-screenshot-1.webp",
-                                "images/pictures/project-screenshot-2.webp",
-                                "images/pictures/project-screenshot-3.webp",
-                                "images/pictures/project-screenshot-4.webp",
-                                "images/pictures/project-screenshot-5.webp"
+                                "images/png/p1-image1.webp",
+                                "images/png/p1-image2.webp",
+                                "images/png/p1-image3.webp",
+                                "images/png/p1-image4.webp"
                             ]
                         }
                     },
@@ -59,8 +58,41 @@
                     "locales": {
                         "en": {
                             "title": "Pressearn",
-                            "text": "A crypto based website with <b>Php</b> with an intuitive UI for <b>for providing earning platform by itseft and by sharing friends.</b>.",
-                            "tags": ["Sharing","Earning","Commission"]
+                            "text": "A crypto-based PHP website that provides an earning platform both for users directly and through sharing with friends. <br> <b>Test Login :</b> <br> <b>Username : user123 <br> Password : user123 </b>",
+                            "tags": ["Sharing","Earning","Commission"] 
+                        }
+                    }
+                },
+
+                {
+                    "categoryId": "softwares",
+                    "icon": {
+                        "img": "images/png/p2-logo.png",
+                        "fa": "",
+                        "faColors": {"bg": null, "fill": null}
+                    },
+
+                    "links": [
+                        {"faIcon": "fa-solid fa-globe", "href": "https://kashankhalid.online/pos"}
+                    ],
+
+                    "media": {
+                        "screenshots": {
+                            "aspectRatio": "9:16",
+                            "images": [
+                                "images/png/p2-image1.webp",
+                                "images/png/p2-image2.webp",
+                                "images/png/p2-image3.webp",
+                                "images/png/p2-image4.webp"
+                            ]
+                        }
+                    },
+
+                    "locales": {
+                        "en": {
+                            "title": "Restuarant Pos",
+                            "text": "A software to manage a restaurant and provide an easy way for order booking. <br> <b>Test Login :</b> <br> <b>Username : testuser <br> Password : 12345678 </b>",
+                            "tags": ["Order Booking","Invoices","Reports"]
                         }
                     }
                 }
