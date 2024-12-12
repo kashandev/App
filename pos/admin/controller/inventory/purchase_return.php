@@ -203,7 +203,7 @@ class ControllerInventoryPurchaseReturn extends HController {
         $this->data['conversion_rate'] = "1.00";
 
         $this->data['partner_types'] = $this->session->data['partner_types'];
-        $this->data['partner_type_id'] = 1;
+        $this->data['partner_type_id'] = 2;
 
         $this->data['document_date'] = stdDate();
         if (isset($this->request->get['purchase_return_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {

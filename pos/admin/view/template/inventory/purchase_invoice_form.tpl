@@ -39,16 +39,7 @@
                                     <i class="fa fa-print"></i>
                                     &nbsp;<?php echo $lang['print']; ?>
                                 </a>
-                               <a class="btn btn-info" target="_blank" href="<?php echo $action_print_barcode; ?>">
-                                <i class="fa fa-print"></i>
-                                &nbsp;<?php echo $lang['print_barcode']; ?>
-                               </a>
-
-                                <a class="btn btn-info" target="_blank" href="<?php echo $action_print_purchase_invoice; ?>">
-                                 <i class="fa fa-print"></i>
-                                 &nbsp;<?php echo $lang['print_purchase_invoice']; ?>
-                                 </a>
-
+        
                                 <?php endif; ?>
                                 <a class="btn btn-default" href="<?php echo $action_cancel; ?>">
                                     <i class="fa fa-undo"></i>
@@ -421,16 +412,6 @@
                                     <i class="fa fa-print"></i>
                                     &nbsp;<?php echo $lang['print']; ?>
                                 </a>
-                               <a class="btn btn-info" target="_blank" href="<?php echo $action_print_barcode; ?>">
-                                <i class="fa fa-print"></i>
-                                &nbsp;<?php echo $lang['print_barcode']; ?>
-                               </a>
-
-                                <a class="btn btn-info" target="_blank" href="<?php echo $action_print_purchase_invoice; ?>">
-                                 <i class="fa fa-print"></i>
-                                 &nbsp;<?php echo $lang['print_purchase_invoice']; ?>
-                                 </a>
-
                                 <?php endif; ?>
                                 <a class="btn btn-default" href="<?php echo $action_cancel; ?>">
                                     <i class="fa fa-undo"></i>

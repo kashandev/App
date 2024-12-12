@@ -5,14 +5,14 @@ $_['heading_title'] = 'Order Booking';
 
 // Column 
 $_['invoice_type'] = 'Invoice Type';
-$_['document_no'] = 'Document No.';
-$_['document_date'] = 'Document Date';
+$_['document_no'] = 'Order No';
+$_['document_date'] = 'Order Date';
 $_['terms'] = 'Terms ';
 $_['manual_ref_no'] = 'Manual Ref No';
 $_['partner_type'] = 'Partner Type';
 $_['partner_name'] = 'Customer';
 $_['ref_document_type'] = 'Ref. Document Type';
-$_['ref_document_no'] = 'Ref. Document No.';
+$_['ref_document_no'] = 'Ref. Order No';
 $_['base_currency'] = 'Base Currency';
 $_['document_currency'] = 'Invoice Currency';
 $_['conversion_rate'] = 'Conversion Rate';

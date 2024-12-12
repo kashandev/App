@@ -133,21 +133,21 @@ class ControllerInventoryPurchaseInvoice extends HController {
                 'class' => 'fa fa-print'
             );
 
-            $actions[] = array(
-                'text' => $lang['print_barcode'],
-                'target' => '_blank',
-                'href' => $this->url->link($this->getAlias() . '/printLabels', 'token=' . $this->session->data['token'] . '&' . $this->getPrimaryKey() . '=' . $aRow[$this->getPrimaryKey()], 'SSL'),    
-                'btn_class' => 'btn btn-info btn-xs',
-                'class' => 'fa fa-print'
-            );
+            // $actions[] = array(
+            //     'text' => $lang['print_barcode'],
+            //     'target' => '_blank',
+            //     'href' => $this->url->link($this->getAlias() . '/printLabels', 'token=' . $this->session->data['token'] . '&' . $this->getPrimaryKey() . '=' . $aRow[$this->getPrimaryKey()], 'SSL'),    
+            //     'btn_class' => 'btn btn-info btn-xs',
+            //     'class' => 'fa fa-print'
+            // );
 
-            $actions[] = array(
-                'text' => $lang['print_purchase_invoice'],
-                'target' => '_blank',
-                'href' => $this->url->link($this->getAlias() . '/printPurchaseInvoice', 'token=' . $this->session->data['token'] . '&' . $this->getPrimaryKey() . '=' . $aRow[$this->getPrimaryKey()] . '&type=purchase_invoice' , 'SSL'),
-                'btn_class' => 'btn btn-info btn-xs',
-                'class' => 'fa fa-print'
-            );
+            // $actions[] = array(
+            //     'text' => $lang['print_purchase_invoice'],
+            //     'target' => '_blank',
+            //     'href' => $this->url->link($this->getAlias() . '/printPurchaseInvoice', 'token=' . $this->session->data['token'] . '&' . $this->getPrimaryKey() . '=' . $aRow[$this->getPrimaryKey()] . '&type=purchase_invoice' , 'SSL'),
+            //     'btn_class' => 'btn btn-info btn-xs',
+            //     'class' => 'fa fa-print'
+            // );
 
 
 
@@ -252,7 +252,7 @@ class ControllerInventoryPurchaseInvoice extends HController {
             $this->data['purchase_invoice_details'] = $this->model['purchase_invoice_detail']->getRows(array('purchase_invoice_id' => $this->request->get['purchase_invoice_id']), array('sort_order'));
         }
 
-        $this->data['partner_type_id'] = 1;
+        $this->data['partner_type_id'] = 2;
         $this->data['href_get_partner_json'] = $this->url->link($this->getAlias() . '/getPartnerJson', 'token=' . $this->session->data['token'], 'SSL');
         $this->data['href_get_partner'] = $this->url->link($this->getAlias() . '/getPartner', 'token=' . $this->session->data['token']);
 
@@ -1554,8 +1554,8 @@ class ControllerInventoryPurchaseInvoice extends HController {
         // set document information
         $pdf->SetCreator(PDF_CREATOR);
         $pdf->SetAuthor('Huzaifa Khambaty');
-        $pdf->SetTitle('PURCHASE RECEIPT');
-        $pdf->SetSubject('PURCHASE RECEIPT');
+        $pdf->SetTitle('ORDER RECEIPT');
+        $pdf->SetSubject('ORDER RECEIPT');
 
         //Set Header
 //        $pdf->data = array(
@@ -1569,7 +1569,7 @@ class ControllerInventoryPurchaseInvoice extends HController {
             'company_name' => $branch['print_name'],
             'company_address' => $branch['address'],
             'company_phone' => $branch['phone_no'],
-            'report_name' => 'PURCHASE RECEIPT',
+            'report_name' => 'ORDER RECEIPT',
             'company_logo' => ''
         );
 
@@ -1795,7 +1795,7 @@ class ControllerInventoryPurchaseInvoice extends HController {
 
 
         //Close and output PDF document
-        $pdf->Output('Purchase Receipt:'.date('YmdHis').'.pdf', 'I');
+        $pdf->Output('ORDER RECEIPT:'.date('YmdHis').'.pdf', 'I');
     }
 
     public function printPurchaseInvoice() {

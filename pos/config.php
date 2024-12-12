@@ -1,15 +1,21 @@
 <?php
+// Detect if the server is local or live
+$is_local = in_array($_SERVER['REMOTE_ADDR'], ['127.0.0.1', '::1']);
+
+// Determine protocol
+$protocol = $is_local ? 'http://' : 'https://';
+
 // HTTP
-define('HTTP_SERVER', 'http://' . $_SERVER['HTTP_HOST'] . '/pos/');
-define('HTTP_BASE', 'http://' . $_SERVER['HTTP_HOST'] . '/pos/assets/');
-define('HTTP_IMAGE', 'http://' . $_SERVER['HTTP_HOST'] . '/pos/image/');
-define('HTTP_EVENT_FILE', 'http://' . $_SERVER['HTTP_HOST'] . '/pos/event_file/');
+define('HTTP_SERVER', $protocol . $_SERVER['HTTP_HOST'] . '/pos/');
+define('HTTP_BASE', $protocol . $_SERVER['HTTP_HOST'] . '/pos/assets/');
+define('HTTP_IMAGE', $protocol . $_SERVER['HTTP_HOST'] . '/pos/image/');
+define('HTTP_EVENT_FILE', $protocol . $_SERVER['HTTP_HOST'] . '/pos/event_file/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://' . $_SERVER['HTTP_HOST'] . '/pos/');
-define('HTTPS_BASE', 'http://' . $_SERVER['HTTP_HOST'] . '/pos/assets/');
-define('HTTPS_IMAGE', 'http://' . $_SERVER['HTTP_HOST'] . '/pos/image/');
-define('HTTPS_EVENT_FILE', 'http://' . $_SERVER['HTTP_HOST'] . '/pos/event_file/');
+define('HTTPS_SERVER', $protocol . $_SERVER['HTTP_HOST'] . '/pos/');
+define('HTTPS_BASE', $protocol . $_SERVER['HTTP_HOST'] . '/pos/assets/');
+define('HTTPS_IMAGE', $protocol . $_SERVER['HTTP_HOST'] . '/pos/image/');
+define('HTTPS_EVENT_FILE', $protocol . $_SERVER['HTTP_HOST'] . '/pos/event_file/');
 
 // DIR
 define('DIR_ROOT', getcwd() . "/");
@@ -25,7 +31,7 @@ define('DIR_CACHE', DIR_SYSTEM . 'cache/');
 define('DIR_UPLOAD', DIR_ROOT . 'upload/');
 define('DIR_LOGS', DIR_SYSTEM . 'logs/');
 define('DIR_CATALOG', DIR_ROOT . 'catalog/');
-define('FPDF_FONTPATH',DIR_ROOT . 'fpdf_font/');
+define('FPDF_FONTPATH', DIR_ROOT . 'fpdf_font/');
 define('DIR_EVENT_FILE', DIR_ROOT . 'event_file/');
 
 // DB
@@ -39,7 +45,7 @@ define('DB_PREFIX', '');
 // Config
 define('CONFIG_DISPLAY_ERROR', 0);
 define('CONFIG_LOG_ERROR', 1);
-define('CONFIG_ERROR_FILE_NAME', 'error_'.date('Ymd').'.log');
+define('CONFIG_ERROR_FILE_NAME', 'error_' . date('Ymd') . '.log');
 
 // Config
 define('CONFIG_APPLICATION_CODE', 'pos');

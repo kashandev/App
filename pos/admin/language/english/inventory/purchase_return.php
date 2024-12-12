@@ -1,11 +1,11 @@
 <?php
 
 // Heading
-$_['heading_title'] = 'Purchase Return';
+$_['heading_title'] = 'Order Return';
 
 // Text
 $_['goods_received_note'] = 'Goods Received Note';
-$_['purchase_invoice'] = 'Purchase Invoice';
+$_['purchase_invoice'] = 'Order Invoice';
 
 $_['document_date'] = 'Document Date';
 $_['document_no'] = 'Document No.';
