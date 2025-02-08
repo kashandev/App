@@ -1,0 +1,64 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.bg-orange {
+    background: #F46700 !important;
+}
+
+.btn-orange-outline {
+    background: #FEEFE5 !important;
+    border: 1px solid #F467007a !important;
+    color: #F46700 !important;
+}
+
+.btn-orange {
+    background: #F46700 !important;
+    border: 1px solid #F46700 !important;
+    color: #fff !important;
+}
+
+.btn-pink {
+    background: var(--pink) !important;
+    border: 1px solid var(--pink) !important;
+    color: #fff !important;
+}
+
+.text-orange {
+    background: #F46700 !important;
+}
+
+.bg-purple {
+    background: #614385 !important;
+}
+
+.text-purple {
+    color: #614385 !important;
+}
+
+.btn-purple {
+    background: #614385 !important;
+    border: 1px solid #614385 !important;
+    color: #fff !important;
+}
+
+.main-wrapper {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.shadow-bottom-purple {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px, #614385 0px 2px 1px !important;
+}
+
+.shadow-bottom-orange {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px, #F46700 0px 2px 1px!important;
+}
+
+button.disable {
+    opacity: var(--bs-btn-disabled-opacity);
+}
+
+
+/* light  */
