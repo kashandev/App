@@ -1,0 +1,14 @@
+-- 01/06/2023
+
+ALTER TABLE `ina_stock_out`
+ADD COLUMN `discount_percent` DECIMAL(11,2) DEFAULT 0.00
+AFTER `total_price_master`,
+ADD COLUMN `discount_amount` DECIMAL(11,2) DEFAULT 0.00
+AFTER `discount_percent`,
+ADD COLUMN `net_amount` DECIMAL(11,2) DEFAULT 0.00
+AFTER `discount_amount`;
+
+
+update `ina_stock_out`
+set `net_amount` = `total_price_master`
+where `net_amount` = 0;

@@ -1,0 +1,287 @@
+ALTER VIEW `vw_in0_product_master` AS 
+SELECT
+  `p`.`company_id`            AS `company_id`,
+  `p`.`product_master_id`     AS `product_master_id`,
+  `p`.`product_category_id`   AS `product_category_id`,
+  `p`.`product_code`          AS `product_code`,
+  `p`.`hs_code`               AS `hs_code`,
+  `p`.`name`                  AS `name`,
+  `p`.`product_image`         AS `product_image`,
+  `p`.`unit_id`               AS `unit_id`,
+  `p`.`manufacture_id`        AS `manufacture_id`,
+  `p`.`brand_id`              AS `brand_id`,
+  `p`.`make_id`               AS `make_id`,
+  `p`.`model_id`              AS `model_id`,
+  `p`.`description`           AS `description`,
+  `p`.`reorder_quantity`      AS `reorder_quantity`,
+  `p`.`cost_price`            AS `cost_price`,
+  `p`.`sale_price`            AS `sale_price`,
+  `p`.`dirham_sale_rate`      AS `dirham_sale_rate`,
+  `p`.`cogs_account_id`       AS `cogs_account_id`,
+  `p`.`inventory_account_id`  AS `inventory_account_id`,
+  `p`.`revenue_account_id`    AS `revenue_account_id`,
+  `p`.`adjustment_account_id` AS `adjustment_account_id`,
+  `p`.`sale_profit`           AS `sale_profit`,
+  `p`.`status`                AS `status`,
+  `p`.`created_at`            AS `created_at`,
+  `p`.`created_by_id`         AS `created_by_id`,
+  `pc`.`name`                 AS `product_category`,
+  `u`.`name`                  AS `unit`,
+  `b`.`name`                  AS `brand`,
+  `mk`.`name`                 AS `make`,
+  `md`.`name`                 AS `model`
+FROM (((((`in0_product_master` `p`
+       LEFT JOIN `in0_product_category` `pc`
+         ON (`pc`.`company_id` = `p`.`company_id`
+             AND `pc`.`product_category_id` = `p`.`product_category_id`))
+      LEFT JOIN `in0_unit` `u`
+        ON (`u`.`company_id` = `p`.`company_id`
+            AND `u`.`unit_id` = `p`.`unit_id`))
+     LEFT JOIN `in0_brand` `b`
+       ON (`b`.`company_id` = `p`.`company_id`
+           AND `b`.`brand_id` = `p`.`brand_id`))
+    LEFT JOIN `in0_make` `mk`
+      ON (`mk`.`company_id` = `p`.`company_id`
+          AND `mk`.`make_id` = `p`.`make_id`))
+   LEFT JOIN `in0_model` `md`
+     ON (`md`.`company_id` = `p`.`company_id`
+         AND `md`.`model_id` = `p`.`model_id`));
+
+
+ALTER VIEW `vw_in0_product` AS 
+SELECT
+  `p`.`company_id`                 AS `company_id`,
+  `p`.`product_id`                 AS `product_id`,
+  `p`.`product_master_id`          AS `product_master_id`,
+  `p`.`product_category_id`        AS `product_category_id`,
+  `p`.`product_code`               AS `product_code`,
+  `p`.`name`                       AS `name`,
+  `p`.`serial_no`                  AS `serial_no`,
+  `p`.`sort_order`                 AS `sort_order`,
+  `p`.`batch_no`                   AS `batch_no`,
+  `p`.`product_image`              AS `product_image`,
+  `p`.`unit_id`                    AS `unit_id`,
+  `p`.`manufacture_id`             AS `manufacture_id`,
+  `p`.`brand_id`                   AS `brand_id`,
+  `p`.`make_id`                    AS `make_id`,
+  `p`.`model_id`                   AS `model_id`,
+  `p`.`description`                AS `description`,
+  `p`.`reorder_quantity`           AS `reorder_quantity`,
+  `p`.`cost_price`                 AS `cost_price`,
+  `p`.`sale_price`                 AS `sale_price`,
+  `p`.`cogs_account_id`            AS `cogs_account_id`,
+  `p`.`inventory_account_id`       AS `inventory_account_id`,
+  `p`.`revenue_account_id`         AS `revenue_account_id`,
+  `p`.`adjustment_account_id`      AS `adjustment_account_id`,
+  `p`.`purchase_invoice_id`        AS `purchase_invoice_id`,
+  `p`.`purchase_invoice_detail_id` AS `purchase_invoice_detail_id`,
+  `p`.`sale_profit`                AS `sale_profit`,
+  `p`.`status`                     AS `status`,
+  `p`.`vendor_serial_no`           AS `vendor_serial_no`,
+  `p`.`created_at`                 AS `created_at`,
+  `p`.`created_by_id`              AS `created_by_id`,
+  `pc`.`name`                      AS `product_category`,
+  `u`.`name`                       AS `unit`,
+  `b`.`name`                       AS `brand`,
+  `mk`.`name`                      AS `make`,
+  `md`.`name`                      AS `model`
+FROM (((((`in0_product` `p`
+       LEFT JOIN `in0_product_category` `pc`
+         ON (`pc`.`company_id` = `p`.`company_id`
+             AND `pc`.`product_category_id` = `p`.`product_category_id`))
+      LEFT JOIN `in0_unit` `u`
+        ON (`u`.`company_id` = `p`.`company_id`
+            AND `u`.`unit_id` = `p`.`unit_id`))
+     LEFT JOIN `in0_brand` `b`
+       ON (`b`.`company_id` = `p`.`company_id`
+           AND `b`.`brand_id` = `p`.`brand_id`))
+    LEFT JOIN `in0_make` `mk`
+      ON (`mk`.`company_id` = `p`.`company_id`
+          AND `mk`.`make_id` = `p`.`make_id`))
+   LEFT JOIN `in0_model` `md`
+     ON (`md`.`company_id` = `p`.`company_id`
+         AND `md`.`model_id` = `p`.`model_id`));
+
+
+
+
+
+DROP VIEW IF EXISTS `vw_ina_stock_in`;
+
+CREATE VIEW `vw_ina_stock_in` AS 
+SELECT
+  `stoi`.`company_id`                    AS `company_id`,
+  `stoi`.`company_branch_id`             AS `company_branch_id`,
+  `stoi`.`fiscal_year_id`                AS `fiscal_year_id`,
+  `stoi`.`stock_in_id`                   AS `stock_in_id`,
+  `stoi`.`document_type_id`              AS `document_type_id`,
+  `stoi`.`document_prefix`               AS `document_prefix`,
+  `stoi`.`document_no`                   AS `document_no`,
+  `stoi`.`document_identity`             AS `document_identity`,
+  `stoi`.`document_date`                 AS `document_date`,
+  `stoi`.`warehouse_id`                  AS `warehouse_id`,
+  `stoi`.`remarks`                       AS `remarks`,
+  `stoi`.`qty_master`                    AS `qty_master`,
+  `stoi`.`total_price_master`            AS `total_price_master`,
+  `stoi`.`is_post`                       AS `is_post`,
+  `stoi`.`post_date`                     AS `post_date`,
+  `stoi`.`post_by_id`                    AS `post_by_id`,
+  `stoi`.`created_at`                    AS `created_at`,
+  `stoi`.`created_by_id`                 AS `created_by_id`,
+  `stoi`.`modified_at`                   AS `modified_at`,
+  `stoi`.`modified_by_id`                AS `modified_by_id`,
+  `w`.`name`                             AS `warehouse`
+FROM (`ina_stock_in` `stoi`
+   LEFT JOIN `in0_warehouse` `w`
+     ON (`w`.`company_id` = `stoi`.`company_id`
+         AND `w`.`company_branch_id` = `stoi`.`company_branch_id`
+         AND `w`.`warehouse_id` = `stoi`.`warehouse_id`));
+
+
+
+
+DROP VIEW IF EXISTS `vw_ina_stock_in_detail`;
+
+CREATE VIEW `vw_ina_stock_in_detail` AS 
+SELECT
+  `stoid`.`company_id`                     AS `company_id`,
+  `stoid`.`company_branch_id`              AS `company_branch_id`,
+  `stoid`.`fiscal_year_id`                 AS `fiscal_year_id`,
+  `stoid`.`stock_in_id`                    AS `stock_in_id`,
+  `stoid`.`stock_in_detail_id`             AS `stock_in_detail_id`,
+  `stoid`.`sort_order`                     AS `sort_order`,
+  `stoid`.`product_id`                     AS `product_id`,
+  `stoid`.`product_code`                   AS `product_code`,
+  `stoid`.`description`                    AS `description`,
+  `stoid`.`unit_id`                        AS `unit_id`,
+  `stoid`.`qty`                            AS `qty`,
+  `stoid`.`unit_price`                     AS `unit_price`,
+  `stoid`.`total_price`                    AS `total_price`,
+  `stoid`.`created_at`                     AS `created_at`,
+  `stoid`.`created_by_id`                  AS `created_by_id`,
+  `stoid`.`warehouse_id`                   AS `warehouse_id`,
+  `stoid`.`serial_no`                      AS `serial_no`,
+  `stoi`.`document_type_id`                AS `document_type_id`,
+  `stoi`.`document_identity`               AS `document_identity`,
+  `stoi`.`document_date`                   AS `document_date`,
+  `stoi`.`is_post`                         AS `is_post`,
+  `p`.`product_category_id`                AS `product_category_id`,
+  `pc`.`name`                              AS `product_category`,
+  `p`.`name`                               AS `product_name`,
+  `u`.`name`                               AS `unit`,
+  `w`.`name`                               AS `warehouse`,
+  `stoi`.`remarks`                         AS `remarks`
+FROM (((((`ina_stock_in_detail` `stoid`
+           JOIN `vw_ina_stock_in` `stoi`
+             ON (`stoi`.`stock_in_id` = `stoid`.`stock_in_id`))
+          LEFT JOIN `in0_product_master` `p`
+            ON (`p`.`company_id` = `stoid`.`company_id`
+                AND `p`.`product_master_id` = `stoid`.`product_id`))
+         LEFT JOIN `in0_unit` `u`
+           ON (`u`.`company_id` = `stoid`.`company_id`
+               AND `u`.`unit_id` = `p`.`unit_id`))
+        LEFT JOIN `in0_product_category` `pc`
+          ON (`pc`.`company_id` = `p`.`company_id`
+              AND `pc`.`product_category_id` = `p`.`product_category_id`))
+      LEFT JOIN `in0_warehouse` `w`
+        ON (`w`.`warehouse_id` = `stoid`.`warehouse_id`));
+
+
+
+DROP VIEW IF EXISTS `vw_ina_stock_out`;
+CREATE VIEW `vw_ina_stock_out` AS 
+SELECT
+  `stoo`.`company_id`           AS `company_id`,
+  `stoo`.`company_branch_id`    AS `company_branch_id`,
+  `stoo`.`fiscal_year_id`       AS `fiscal_year_id`,
+  `stoo`.`stock_out_id`         AS `stock_out_id`,
+  `stoo`.`document_type_id`     AS `document_type_id`,
+  `stoo`.`document_prefix`      AS `document_prefix`,
+  `stoo`.`document_no`          AS `document_no`,
+  `stoo`.`document_date`        AS `document_date`,
+  `stoo`.`document_identity`    AS `document_identity`,
+  `stoo`.`partner_type_id`      AS `partner_type_id`,
+  `stoo`.`partner_id`           AS `partner_id`,
+  `stoo`.`remarks`              AS `remarks`,
+  `stoo`.`qty_master`           AS `qty_master`,
+  `stoo`.`total_price_master`   AS `total_price_master`,
+  `stoo`.`is_post`              AS `is_post`,
+  `stoo`.`post_date`            AS `post_date`,
+  `stoo`.`post_by_id`           AS `post_by_id`,
+  `stoo`.`created_at`           AS `created_at`,
+  `stoo`.`created_by_id`        AS `created_by_id`,
+  `p`.`partner_type`            AS `partner_type`,
+  `p`.`name`                    AS `partner_name`
+FROM (`ina_stock_out` `stoo`
+     LEFT JOIN `core_partner` `p`
+       ON (`p`.`company_id` = `stoo`.`company_id`
+           AND `p`.`partner_type_id` = `stoo`.`partner_type_id`
+           AND `p`.`partner_id` = `stoo`.`partner_id`));
+
+
+
+DROP VIEW IF EXISTS `vw_ina_stock_out_detail`;
+CREATE VIEW `vw_ina_stock_out_detail` AS 
+SELECT
+  `stood`.`company_id`                 AS `company_id`,
+  `stood`.`company_branch_id`          AS `company_branch_id`,
+  `stood`.`fiscal_year_id`             AS `fiscal_year_id`,
+  `stood`.`stock_out_id`               AS `stock_out_id`,
+  `stood`.`stock_out_detail_id`        AS `stock_out_detail_id`,
+  `stood`.`sort_order`                 AS `sort_order`,
+  `stood`.`serial_no`                  AS `serial_no`,
+  `stood`.`warehouse_id`               AS `warehouse_id`,
+  `stood`.`product_master_id`          AS `product_master_id`,
+  `stood`.`product_id`                 AS `product_id`,
+  `stood`.`product_code`               AS `product_code`,
+  `stood`.`description`                AS `description`,
+  `stood`.`unit_id`                    AS `unit_id`,
+  `stood`.`qty`                        AS `qty`,
+  `stood`.`unit_price`                 AS `unit_price`,
+  `stood`.`total_price`                AS `total_price`,
+  `stoo`.`total_price_master`          AS `total_amount`,
+  `stoo`.`remarks`                     AS `remarks`,
+  `stood`.`created_at`                 AS `created_at`,
+  `stood`.`created_by_id`              AS `created_by_id`,
+  `stoo`.`document_type_id`            AS `document_type_id`,
+  `stoo`.`document_identity`           AS `document_identity`,
+  `stoo`.`document_date`               AS `document_date`,
+  `stoo`.`is_post`                     AS `is_post`,
+  `stoo`.`partner_type_id`             AS `partner_type_id`,
+  `stoo`.`partner_id`                  AS `partner_id`,
+  `p`.`product_category_id`            AS `product_category_id`,
+  `pc`.`name`                          AS `product_category`,
+  `p`.`name`                           AS `product_name`,
+  `b`.`name`                           AS `brand`,
+  `md`.`name`                          AS `model`,
+  `u`.`name`                           AS `unit`,
+  `wh`.`name`                          AS `warehouse`,
+  `pr`.`name`                          AS `partner_name`
+FROM ((((((((`ina_stock_out_detail` `stood`
+          JOIN `ina_stock_out` `stoo`
+            ON (`stoo`.`stock_out_id` = `stood`.`stock_out_id`))
+       LEFT JOIN `in0_product` `p`
+           ON (`p`.`company_id` = `stood`.`company_id`
+               AND `p`.`product_id` = `stood`.`product_id`))
+       LEFT JOIN `in0_brand` `b`
+       ON (`b`.`company_id` = `p`.`company_id`
+           AND `b`.`brand_id` = `p`.`brand_id`))
+       LEFT JOIN `in0_model` `md`
+      ON (`md`.`company_id` = `p`.`company_id`
+         AND `md`.`model_id` = `p`.`model_id`))
+       LEFT JOIN `in0_product_category` `pc`
+          ON (`pc`.`company_id` = `p`.`company_id`
+              AND `pc`.`product_category_id` = `p`.`product_category_id`))
+       LEFT JOIN `in0_unit` `u`
+         ON (`u`.`company_id` = `stood`.`company_id`
+             AND `u`.`unit_id` = `stood`.`unit_id`))
+       LEFT JOIN `in0_warehouse` `wh`
+        ON (`wh`.`company_id` = `stood`.`company_id`
+            AND `wh`.`company_branch_id` = `stood`.`company_branch_id`
+            AND `wh`.`warehouse_id` = `stood`.`warehouse_id`))
+      LEFT JOIN `core_partner` `pr`
+       ON (`pr`.`company_id` = `stoo`.`company_id`
+           AND `pr`.`partner_type_id` = `stoo`.`partner_type_id`
+           AND `pr`.`partner_id` = `stoo`.`partner_id`));
+
+

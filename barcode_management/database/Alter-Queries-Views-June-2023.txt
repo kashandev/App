@@ -1,0 +1,32 @@
+DROP VIEW IF EXISTS `vw_ina_stock_out`;
+CREATE VIEW `vw_ina_stock_out` AS 
+SELECT
+  `stoo`.`company_id`           AS `company_id`,
+  `stoo`.`company_branch_id`    AS `company_branch_id`,
+  `stoo`.`fiscal_year_id`       AS `fiscal_year_id`,
+  `stoo`.`stock_out_id`         AS `stock_out_id`,
+  `stoo`.`document_type_id`     AS `document_type_id`,
+  `stoo`.`document_prefix`      AS `document_prefix`,
+  `stoo`.`document_no`          AS `document_no`,
+  `stoo`.`document_date`        AS `document_date`,
+  `stoo`.`document_identity`    AS `document_identity`,
+  `stoo`.`partner_type_id`      AS `partner_type_id`,
+  `stoo`.`partner_id`           AS `partner_id`,
+  `stoo`.`remarks`              AS `remarks`,
+  `stoo`.`qty_master`           AS `qty_master`,
+  `stoo`.`total_price_master`   AS `total_price_master`,
+  `stoo`.`discount_percent`     AS `discount_percent`,
+  `stoo`.`discount_amount`      AS `discount_amount`,
+  `stoo`.`net_amount`           AS `net_amount`,
+  `stoo`.`is_post`              AS `is_post`,
+  `stoo`.`post_date`            AS `post_date`,
+  `stoo`.`post_by_id`           AS `post_by_id`,
+  `stoo`.`created_at`           AS `created_at`,
+  `stoo`.`created_by_id`        AS `created_by_id`,
+  `p`.`partner_type`            AS `partner_type`,
+  `p`.`name`                    AS `partner_name`
+FROM (`ina_stock_out` `stoo`
+     LEFT JOIN `core_partner` `p`
+       ON (`p`.`company_id` = `stoo`.`company_id`
+           AND `p`.`partner_type_id` = `stoo`.`partner_type_id`
+           AND `p`.`partner_id` = `stoo`.`partner_id`));

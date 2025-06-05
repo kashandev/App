@@ -1,0 +1,60 @@
+<?php
+
+// Heading
+$_['heading_title'] = 'Delivery Challan';
+
+// Text
+$_['document_no'] = 'Document No.';
+$_['document_date'] = 'Document Date';
+$_['partner_type'] = 'Partner Type';
+$_['partner_name'] = 'Customer Name';
+$_['ref_document_type'] = 'Ref. Document Type';
+$_['ref_document_no'] = 'Ref. Document No.';
+$_['base_currency'] = 'Base Currency';
+$_['document_currency'] = 'Invoice Currency';
+$_['conversion_rate'] = 'Conversion Rate';
+$_['po_date'] = 'Po Date';
+$_['po_no'] = 'Po No';
+$_['remarks'] = 'Remarks';
+$_['sale_order'] = 'Sale Order';
+$_['challan_type'] = 'Type';
+$_['challan_status'] = 'Status';
+$_['salesman'] = 'Salesman';
+$_['invoice_status'] = 'Invoice Status';
+
+$_['product_code'] = 'Product Code';
+$_['product_name'] = 'Product Name';
+$_['description'] = 'Description';
+$_['warehouse'] = 'Warehouse';
+$_['unit'] = 'Unit';
+$_['stock_quantity'] = 'Stock Quantity';
+$_['quantity'] = 'Quantity';
+$_['rate'] = 'Rate';
+$_['total_qty'] = 'Total Quantity';
+$_['batch_no'] = 'Batch No';
+$_['serial_no'] = 'Serial No';
+$_['customer_unit'] = 'Customer Unit';
+$_['driver_name'] = 'Driver Name';
+$_['order_by'] = 'Order By';
+$_['vehicle_no'] = 'Vehicle No';
+$_['cargo_name'] = 'Cargo Name';
+$_['terms_of_delivery'] = 'Terms Of Delivery';
+$_['customer_unit'] = 'Customer Unit';
+$_['customer_unit'] = 'Customer Unit';
+
+$_['phone_no'] = 'Phone No.';
+$_['address'] = 'Address';
+
+$_['last_rate'] = 'Last Rate';
+
+$_['delivery_time'] = 'Delivery Time';
+$_['delivery_address'] = 'Delivery Address';
+
+
+$_['project'] = 'Project/Sub Project';
+
+
+$_['ref_document_identity_error'] = 'Delivery Challan can not delete against on ';
+
+// Error
+?>

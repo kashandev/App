@@ -1,0 +1,4 @@
+
+config.php
+/system/logs/*.log
+/image/cache/*

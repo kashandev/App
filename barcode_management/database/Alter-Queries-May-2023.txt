@@ -1,0 +1,139 @@
+-- 04/05/2023
+
+ALTER TABLE `in0_product_master`
+ADD COLUMN `hs_code` VARCHAR(8) NOT NULL
+AFTER `product_category_id`,
+ADD COLUMN   `dirham_sale_rate` DECIMAL(17,4) NOT NULL DEFAULT 0.0000
+AFTER `sale_price`;
+
+
+ALTER TABLE `in0_product`
+MODIFY COLUMN `serial_no` VARCHAR(255) NOT NULL;
+
+ALTER TABLE `core_stock_ledger_history`
+MODIFY COLUMN `serial_no` VARCHAR(255) NOT NULL;
+
+
+
+ALTER TABLE `in0_product`
+ADD COLUMN `sort_order` INT(11)
+AFTER created_by_id;
+
+UPDATE `in0_product`
+SET `sort_order` = REPLACE(serial_no,CONCAT(product_code,"-"),"")
+
+
+
+ALTER TABLE core_stock_ledger_history
+ADD COLUMN `product_code` VARCHAR(255) DEFAULT NULL
+AFTER product_master_id,
+ADD COLUMN `product_name` VARCHAR(255) DEFAULT NULL
+AFTER product_code,
+ADD COLUMN `unit` VARCHAR(255) DEFAULT NULL
+AFTER product_name,
+ADD COLUMN `warehouse` VARCHAR(255) DEFAULT NULL
+AFTER unit;
+
+
+DROP TABLE IF EXISTS `ina_stock_in`;
+
+CREATE TABLE `ina_stock_in` (
+  `company_id` INT(11) NOT NULL,
+  `company_branch_id` INT(11) NOT NULL,
+  `fiscal_year_id` INT(11) NOT NULL,
+  `stock_in_id` CHAR(40) NOT NULL,
+  `document_type_id` INT(11) NOT NULL,
+  `document_prefix` VARCHAR(255) NOT NULL,
+  `document_no` INT(11) NOT NULL,
+  `document_identity` VARCHAR(255) NOT NULL,
+  `document_date` DATE NOT NULL,
+  `warehouse_id` CHAR(40) NOT NULL,
+  `remarks` TEXT NOT NULL,
+  `qty_master` DECIMAL(11,2) DEFAULT 0.00,
+  `total_price_master` DECIMAL(11,2) DEFAULT 0.00,
+  `is_post` TINYINT(4) NOT NULL DEFAULT 0,
+  `post_date` DATETIME DEFAULT NULL,
+  `post_by_id` INT(11) NOT NULL,
+  `created_at` DATETIME DEFAULT NULL,
+  `created_by_id` INT(11) DEFAULT NULL,
+  `modified_at` DATETIME DEFAULT NULL,
+  `modified_by_id` INT(11) DEFAULT NULL,
+  PRIMARY KEY (`stock_in_id`)
+) ENGINE=INNODB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `ina_stock_in_detail`;
+
+CREATE TABLE `ina_stock_in_detail` (
+  `company_id` INT(11) DEFAULT NULL,
+  `company_branch_id` INT(11) DEFAULT NULL,
+  `fiscal_year_id` INT(11) DEFAULT NULL,
+  `stock_in_id` CHAR(40) NOT NULL,
+  `stock_in_detail_id` CHAR(40) NOT NULL,
+  `sort_order` INT(11) DEFAULT 0 NOT NULL,
+  `product_id` CHAR(40) NOT NULL,
+  `product_code` VARCHAR(255) NOT NULL,
+  `description` TEXT DEFAULT NULL,
+  `unit_id` INT(11) DEFAULT NULL,
+  `qty` DECIMAL(11,2) DEFAULT 0.00,
+  `unit_price` DECIMAL(11,2) DEFAULT 0.00,
+  `total_price` DECIMAL(11,2) DEFAULT 0.00,
+  `created_at` DATETIME DEFAULT NULL,
+  `created_by_id` CHAR(40) DEFAULT NULL,
+  `warehouse_id` INT(11) DEFAULT NULL,
+  `serial_no` VARCHAR(255) DEFAULT NULL,
+  PRIMARY KEY (`stock_in_detail_id`)
+) ENGINE=INNODB DEFAULT CHARSET=utf8 CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
+
+
+
+
+DROP TABLE IF EXISTS `ina_stock_out`;
+
+CREATE TABLE `ina_stock_out` (
+  `company_id` INT(11) NOT NULL,
+  `company_branch_id` INT(11) NOT NULL,
+  `fiscal_year_id` INT(11) NOT NULL,
+  `stock_out_id` CHAR(40) NOT NULL,
+  `document_type_id` INT(11) NOT NULL,
+  `document_prefix` VARCHAR(255) NOT NULL,
+  `document_no` INT(11) NOT NULL,
+  `document_date` DATE NOT NULL,
+  `document_identity` VARCHAR(255) NOT NULL,
+  `partner_type_id` VARCHAR(255) DEFAULT NULL,
+  `partner_id` CHAR(40) NOT NULL,
+  `remarks` TEXT NOT NULL,
+  `qty_master` DECIMAL(11,2) DEFAULT 0.00,
+  `total_price_master` DECIMAL(11,2) DEFAULT 0.00,
+  `is_post` TINYINT(4) DEFAULT NULL,
+  `post_date` DATETIME DEFAULT NULL,
+  `post_by_id` INT(11) DEFAULT NULL,
+  `created_at` DATETIME DEFAULT NULL,
+  `created_by_id` INT(11) DEFAULT NULL,
+  PRIMARY KEY (`stock_out_id`)
+) ENGINE=INNODB DEFAULT CHARSET=utf8 CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
+
+
+DROP TABLE IF EXISTS `ina_stock_out_detail`;
+
+CREATE TABLE `ina_stock_out_detail` (
+  `company_id` INT(11) DEFAULT NULL,
+  `company_branch_id` INT(11) DEFAULT NULL,
+  `fiscal_year_id` INT(11) DEFAULT NULL,
+  `stock_out_id` CHAR(40) NOT NULL,
+  `stock_out_detail_id` CHAR(40) NOT NULL,
+  `sort_order` INT(11) NOT NULL DEFAULT 0,
+  `serial_no` VARCHAR(255) DEFAULT NULL,
+  `warehouse_id` INT(11) NOT NULL,
+  `product_master_id` CHAR(40) DEFAULT NULL,
+  `product_id` CHAR(40) DEFAULT NULL,
+  `product_code` VARCHAR(16) DEFAULT NULL,
+  `description` TEXT DEFAULT NULL,
+  `unit_id` CHAR(40) DEFAULT NULL,
+  `qty` DECIMAL(11,2) DEFAULT 0.00,
+  `unit_price` DECIMAL(11,2) DEFAULT 0.00,
+  `total_price` DECIMAL(11,2) DEFAULT 0.00,
+  `created_at` DATETIME DEFAULT NULL,
+  `created_by_id` CHAR(40) DEFAULT NULL,
+  PRIMARY KEY (`stock_out_detail_id`)
+) ENGINE=INNODB DEFAULT CHARSET=utf8;
