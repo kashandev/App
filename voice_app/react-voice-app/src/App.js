@@ -6,10 +6,12 @@ const App = () => {
   const [spokenText, setSpokenText] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [speechSupported, setSpeechSupported] = useState(true);
   const recognitionRef = useRef(null);
   const [voices, setVoices] = useState([]);
 
   useEffect(() => {
+    // Load speech synthesis voices
     if ("speechSynthesis" in window) {
       const loadVoices = () => {
         const allVoices = window.speechSynthesis.getVoices();
@@ -17,6 +19,12 @@ const App = () => {
       };
       loadVoices();
       window.speechSynthesis.onvoiceschanged = loadVoices;
+    }
+
+    // Check speech recognition support
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      setSpeechSupported(false);
     }
   }, []);
 
@@ -26,47 +34,70 @@ const App = () => {
       return;
     }
 
-    if ("speechSynthesis" in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = "en-US";
-      utterance.voice = voices.find((v) => v.lang === "en-US") || voices[0];
-      window.speechSynthesis.speak(utterance);
-    } else {
-      alert("Speech Synthesis is not supported in this browser.");
-    }
+    // Stop any ongoing recognition
+    if (recognitionRef.current) recognitionRef.current.abort();
+    window.speechSynthesis.cancel();
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = "en-US";
+    utterance.voice = voices.find((v) => v.lang === "en-US") || voices[0];
+    window.speechSynthesis.speak(utterance);
+
+    setSpokenText(""); // Clear previously spoken text
   };
 
-  const handleListen = () => {
+  const handleListen = async () => {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!SpeechRecognition) {
-      alert("Speech Recognition is not supported in this browser.");
+      alert("❌ Speech Recognition not supported on this browser.");
       return;
     }
 
-    if (recognitionRef.current) recognitionRef.current.abort();
+    try {
+      // Ask for mic permission
+      await navigator.mediaDevices.getUserMedia({ audio: true });
 
-    const recognition = new SpeechRecognition();
-    recognition.continuous = false;
-    recognition.lang = "en-US";
-    recognition.interimResults = false;
+      // Cancel previous speech or recognition
+      window.speechSynthesis.cancel();
+      if (recognitionRef.current) recognitionRef.current.abort();
 
-    recognition.onresult = (event) => {
-      const transcript = event.results[0][0].transcript;
-      setSpokenText(transcript);
-      handleSearch(transcript);
-    };
+      const recognition = new SpeechRecognition();
+      recognition.continuous = false;
+      recognition.lang = "en-US";
+      recognition.interimResults = false;
 
-    recognition.onerror = (event) => {
-      console.error("Speech recognition error:", event.error);
-    };
+      recognition.onstart = () => {
+        setSpokenText("🎤 Listening...");
+      };
 
-    recognition.onend = () => {
-      recognitionRef.current = null;
-    };
+      recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        setSpokenText(transcript);
+        setText(""); // Clear manual input
+        handleSearch(transcript);
+      };
 
-    recognitionRef.current = recognition;
-    recognition.start();
+      recognition.onerror = (event) => {
+        console.error("Speech recognition error:", event.error);
+        let errorMessage = "Speech recognition failed.";
+        if (event.error === "not-allowed") {
+          errorMessage = "Microphone access denied. Please allow it.";
+        } else if (event.error === "no-speech") {
+          errorMessage = "No speech detected. Try again.";
+        }
+        setSpokenText(errorMessage);
+      };
+
+      recognition.onend = () => {
+        recognitionRef.current = null;
+      };
+
+      recognitionRef.current = recognition;
+      setTimeout(() => recognition.start(), 200); // Small delay improves Android support
+    } catch (err) {
+      console.error("Microphone access error:", err);
+      alert("Please allow microphone access to use voice input.");
+    }
   };
 
   const handleSearch = async (query) => {
@@ -76,7 +107,9 @@ const App = () => {
 
     try {
       const response = await fetch(
-        `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(query)}&format=json&origin=*`
+        `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(
+          query
+        )}&format=json&origin=*`
       );
       const data = await response.json();
 
@@ -134,23 +167,22 @@ const App = () => {
   };
 
   return (
-    <div
-      style={{
-        padding: 20,
-        fontFamily: "Arial",
-        maxWidth: 800,
-        margin: "auto",
-      }}
-    >
-      <h2
-        style={{
-          fontSize: 24,
-          marginBottom: 20,
-          textAlign: "center",
-        }}
-      >
-        🎙️ Voice Assistant
-      </h2>
+    <div style={{ padding: 20, fontFamily: "Arial", maxWidth: 800, margin: "auto" }}>
+      <h2 style={{ fontSize: 24, marginBottom: 20, textAlign: "center" }}>🎙️ Voice Assistant</h2>
+
+      {!speechSupported && (
+        <div
+          style={{
+            padding: 10,
+            backgroundColor: "#ffe0e0",
+            borderRadius: 6,
+            color: "#a00",
+            marginBottom: 20,
+          }}
+        >
+          ⚠️ Speech recognition is not supported on this device or browser.
+        </div>
+      )}
 
       <div style={{ marginBottom: 30 }}>
         <textarea
@@ -192,6 +224,7 @@ const App = () => {
             aria-label="Start voice recognition"
             style={{ ...iconButtonStyle, backgroundColor: "#28a745", color: "#fff" }}
             title="Voice Recognition"
+            disabled={!speechSupported}
           >
             <MdKeyboardVoice />
           </button>
