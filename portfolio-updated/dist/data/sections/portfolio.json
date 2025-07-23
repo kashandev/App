@@ -1,0 +1,336 @@
+{
+    "locales": {
+        "en": {
+            "title": "Portfolio",
+            "title_long_prefix": "Take a look at",
+            "title_long": "My **Portfolio**"
+        }
+    },
+
+    "articles": [
+        {
+            "id": "portfolio",
+            "component": "ArticlePortfolio",
+            "config": {},
+            "locales": {},
+
+            "categories": [
+                {
+                    "id": "websites",
+                    "locales": {
+                        "en": {"singular": "Website", "plural": "Websites"}
+                    }
+                },
+                {
+                    "id": "softwares",
+                    "locales": {
+                        "en": {"singular": "Software", "plural": "Softwares"}
+                    }
+                }
+            ],
+
+            "items": [
+
+                {
+                    "categoryId": "websites",
+                    "icon": {
+                        "img": "images/png/p1-logo.png",
+                        "fa": "",
+                        "faColors": {"bg": null, "fill": null}
+                    },
+
+                    "links": [
+                        {"faIcon": "fa-solid fa-globe", "href": "https://kashankhalid.online/pressearn"}
+                    ],
+
+                    "media": {
+                        "screenshots": {
+                            "aspectRatio": "9:16",
+                            "images": [
+                                "images/png/p1-image1.webp",
+                                "images/png/p1-image2.webp",
+                                "images/png/p1-image3.webp",
+                                "images/png/p1-image4.webp"
+                            ]
+                        }
+                    },
+
+                    "locales": {
+                        "en": {
+                            "title": "Pressearn",
+                            "text": "A crypto-based PHP website that provides an earning platform both for users directly and through sharing with friends. <br> <b>Test Login :</b> <br> <b>Username : user123 <br> Password : user123 </b>",
+                            "tags": ["Sharing","Earning","Commission"] 
+                        }
+                    }
+                },
+
+                {
+                    "categoryId": "websites",
+                    "icon": {
+                        "img": "images/png/p3-logo.png",
+                        "fa": "",
+                        "faColors": {"bg": null, "fill": null}
+                    },
+
+                    "links": [
+                        {"faIcon": "fa-solid fa-globe", "href": "#"}
+                    ],
+
+                    "media": {
+                        "screenshots": {
+                            "aspectRatio": "9:16",
+                            "images": [
+                                "images/png/p1-image1.webp",
+                                "images/png/p1-image2.webp",
+                                "images/png/p1-image3.webp",
+                                "images/png/p1-image4.webp"
+                            ]
+                        }
+                    },
+
+                    "locales": {
+                        "en": {
+                            "title": "Robotics PK",
+                            "text": "A custom shopping website for electronics items including admin panel with features of catrgory products add to cart checkout etc. <br> <b>Test Login :</b> <br> <b>Username : user123 <br> Password : user123 </b>",
+                            "tags": ["Add to Cart","Shopping","Invoice"] 
+                        }
+                    }
+                },
+
+                {
+                    "categoryId": "softwares",
+                    "icon": {
+                        "img": "images/png/p2-logo.png",
+                        "fa": "",
+                        "faColors": {"bg": null, "fill": null}
+                    },
+
+                    "links": [
+                        {"faIcon": "fa-solid fa-globe", "href": "#"}
+                    ],
+
+                    "media": {
+                        "screenshots": {
+                            "aspectRatio": "9:16",
+                            "images": [
+                                "images/png/p2-image1.webp",
+                                "images/png/p2-image2.webp",
+                                "images/png/p2-image3.webp",
+                                "images/png/p2-image4.webp"
+                            ]
+                        }
+                    },
+
+                    "locales": {
+                        "en": {
+                            "title": "Boot Store",
+                            "text": "A software to manage a boot shop and provide an easy way for sale and purchase. <br> <b>Test Login :</b> <br> <b>Username : testuser <br> Password : 12345678 </b>",
+                            "tags": ["Sale","Invoices","Reports"]
+                        }
+                    }
+                },
+
+                {
+                    "categoryId": "softwares",
+                    "icon": {
+                        "img": "images/png/p8-logo.png",
+                        "fa": "",
+                        "faColors": {"bg": null, "fill": null}
+                    },
+
+                    "links": [
+                        {"faIcon": "fa-solid fa-globe", "href": "#"}
+                    ],
+
+                    "media": {
+                        "screenshots": {
+                            "aspectRatio": "9:16",
+                            "images": [
+                                "images/png/p3-image1.webp",
+                                "images/png/p3-image2.webp",
+                                "images/png/p3-image3.webp",
+                                "images/png/p3-image4.webp"
+                            ]
+                        }
+                    },
+
+                    "locales": {
+                        "en": {
+                            "title": "Barcode Management",
+                            "text": "A software to manage a boutique for sale, purchase and generating brands and products labels. <br> <b>Test Login :</b> <br> <b>Username : testuser <br> Password : 12345678 </b>",
+                            "tags": ["Generate Barcode","Invoices","Reports"]
+                        }
+                    }
+                },
+
+                {
+                    "categoryId": "softwares",
+                    "icon": {
+                        "img": "images/png/p7-logo.png",
+                        "fa": "",
+                        "faColors": {"bg": null, "fill": null}
+                    },
+
+                    "links": [
+                        {"faIcon": "fa-solid fa-globe", "href": "#"}
+                    ],
+
+                    "media": {
+                        "screenshots": {
+                            "aspectRatio": "9:16",
+                            "images": [
+                                "images/png/p4-image1.webp",
+                                "images/png/p4-image2.webp",
+                                "images/png/p4-image3.webp",
+                                "images/png/p4-image4.webp"
+                            ]
+                        }
+                    },
+
+                    "locales": {
+                        "en": {
+                            "title": "Complain Management",
+                            "text": "A software to manage a complain for electronics items. <br> <b>Test Login :</b> <br> <b>Username : testuser <br> Password : 12345678 </b>",
+                            "tags": ["Complain","Invoices","Reports"]
+                        }
+                    }
+                },
+
+
+                {
+                    "categoryId": "softwares",
+                    "icon": {
+                        "img": "images/png/p4-logo.png",
+                        "fa": "",
+                        "faColors": {"bg": null, "fill": null}
+                    },
+
+                    "links": [
+                        {"faIcon": "fa-solid fa-globe", "href": "#"}
+                    ],
+
+                    "media": {
+                        "screenshots": {
+                            "aspectRatio": "9:16",
+                            "images": [
+                                "images/png/p4-image1.webp",
+                                "images/png/p4-image2.webp",
+                                "images/png/p4-image3.webp",
+                                "images/png/p4-image4.webp"
+                            ]
+                        }
+                    },
+
+                    "locales": {
+                        "en": {
+                            "title": "Plot Management",
+                            "text": "A software to manage a plot booking & payments. <br> <b>Test Login :</b> <br> <b>Username : testuser <br> Password : 12345678 </b>",
+                            "tags": ["Booking","Payments","Invoices","Reports"]
+                        }
+                    }
+                },
+
+
+                {
+                    "categoryId": "softwares",
+                    "icon": {
+                        "img": "images/png/p6-logo.png",
+                        "fa": "",
+                        "faColors": {"bg": null, "fill": null}
+                    },
+
+                    "links": [
+                        {"faIcon": "fa-solid fa-globe", "href": "#"}
+                    ],
+
+                    "media": {
+                        "screenshots": {
+                            "aspectRatio": "9:16",
+                            "images": [
+                                "images/png/p4-image1.webp",
+                                "images/png/p4-image2.webp",
+                                "images/png/p4-image3.webp",
+                                "images/png/p4-image4.webp"
+                            ]
+                        }
+                    },
+
+                    "locales": {
+                        "en": {
+                            "title": "Visitor Management",
+                            "text": "A software to manage a visitor information. <br> <b>Test Login :</b> <br> <b>Username : testuser <br> Password : 12345678 </b>",
+                            "tags": ["Visitor Info","Invoices","Reports"]
+                        }
+                    }
+                },
+
+                {
+                    "categoryId": "softwares",
+                    "icon": {
+                        "img": "images/png/p5-logo.png",
+                        "fa": "",
+                        "faColors": {"bg": null, "fill": null}
+                    },
+
+                    "links": [
+                        {"faIcon": "fa-solid fa-globe", "href": "#"}
+                    ],
+
+                    "media": {
+                        "screenshots": {
+                            "aspectRatio": "9:16",
+                            "images": [
+                                "images/png/p4-image1.webp",
+                                "images/png/p4-image2.webp",
+                                "images/png/p4-image3.webp",
+                                "images/png/p4-image4.webp"
+                            ]
+                        }
+                    },
+
+                    "locales": {
+                        "en": {
+                            "title": "CRM",
+                            "text": "A software for managing customers, quotation & leeds etc. <br> <b>Test Login :</b> <br> <b>Username : testuser <br> Password : 12345678 </b>",
+                            "tags": ["Quotation", "Leeds","Invoice"]
+                        }
+                    }
+                },
+                {
+                    "categoryId": "softwares",
+                    "icon": {
+                        "img": "images/png/p5-logo.png",
+                        "fa": "",
+                        "faColors": {"bg": null, "fill": null}
+                    },
+
+                    "links": [
+                        {"faIcon": "fa-solid fa-globe", "href": "https://ntmess.com/"}
+                    ],
+
+                    "media": {
+                        "screenshots": {
+                            "aspectRatio": "9:16",
+                            "images": [
+                                "images/png/p9-image1.webp",
+                                "images/png/p9-image2.webp",
+                                "images/png/p9-image3.webp",
+                                "images/png/p9-image4.webp"
+                            ]
+                        }
+                    },
+
+                    "locales": {
+                        "en": {
+                            "title": "Employee Self Service Portal",
+                            "text": "A portal for managing employees information leaves,attendance and also textile information. <br> <b>Test Login :</b> <br> <b>Username : superman <br> Password : superman123 </b>",
+                            "tags": ["Employee Management", "Textile Management","Reports"]
+                        }
+                    }
+                }
+
+                
+            ]
+        }
+    ]
+}
