@@ -1,0 +1,41 @@
+03/01/2023
+
+ALTER TABLE ins_sale_tax_invoice
+ADD COLUMN job_order_id CHAR(40) NOT NULL
+AFTER sale_tax_invoice_id,
+ADD COLUMN document_type VARCHAR(255) DEFAULT NULL
+AFTER customer_unit_id;
+
+ALTER TABLE ins_sale_tax_invoice_detail
+ADD COLUMN product_type VARCHAR(64) DEFAULT NULL
+AFTER product_id;
+
+ALTER TABLE ins_sale_tax_invoice_detail
+ADD COLUMN part_name VARCHAR(64) DEFAULT NULL
+AFTER product_type;
+
+ALTER TABLE ins_job_order
+ADD COLUMN job_order_type VARCHAR(64) DEFAULT NULL
+AFTER product_serial_no;
+
+
+
+
+ALTER TABLE ins_sale_tax_invoice
+ADD COLUMN customer_name VARCHAR(255) DEFAULT NULL
+AFTER partner_id,
+ADD COLUMN mobile VARCHAR(255) DEFAULT NULL
+AFTER customer_name;
+
+ALTER TABLE ins_job_order_estimate
+ADD COLUMN is_post TINYINT(4) DEFAULT 0
+AFTER created_by_id,
+ADD COLUMN post_date DATETIME DEFAULT NULL
+AFTER is_post,
+ADD COLUMN post_by_id CHAR(40) DEFAULT NULL
+AFTER post_date;
+
+
+
+
+

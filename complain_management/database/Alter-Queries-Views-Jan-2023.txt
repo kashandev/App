@@ -1,0 +1,189 @@
+DROP VIEW IF EXISTS `vw_ins_sale_tax_invoice`;
+
+CREATE VIEW `vw_ins_sale_tax_invoice` AS 
+SELECT
+  `si`.`company_id`           AS `company_id`,
+  `si`.`company_branch_id`    AS `company_branch_id`,
+  `si`.`fiscal_year_id`       AS `fiscal_year_id`,
+  `si`.`sale_tax_no`          AS `sale_tax_no`,
+  `si`.`sale_tax_invoice_id`  AS `sale_tax_invoice_id`,
+  `si`.`job_order_id`         AS `job_order_id`, 
+  `si`.`document_type`        AS `document_type`,
+  `si`.`sale_type`            AS `sale_type`,
+  `si`.`invoice_type`         AS `invoice_type`,
+  `si`.`project_id`           AS `project_id`,
+  `si`.`sub_project_id`       AS `sub_project_id`,
+  `si`.`document_type_id`     AS `document_type_id`,
+  `si`.`document_prefix`      AS `document_prefix`,
+  `si`.`document_no`          AS `document_no`,
+  `si`.`document_date`        AS `document_date`,
+  `si`.`document_identity`    AS `document_identity`,
+  `si`.`partner_type_id`      AS `partner_type_id`,
+  `si`.`partner_id`           AS `partner_id`,
+  `si`.`ref_invoice_no`       AS `ref_invoice_no`,
+  `si`.`billty_date`          AS `billty_date`,
+  `si`.`billty_no`            AS `billty_no`,
+  `si`.`manual_ref_no`        AS `manual_ref_no`,
+  `si`.`remarks`              AS `remarks`,
+  `si`.`remarks2`             AS `remarks2`,
+  `si`.`document_currency_id` AS `document_currency_id`,
+  `si`.`item_amount`          AS `item_amount`,
+  `si`.`item_discount`        AS `item_discount`,
+  `si`.`item_tax`             AS `item_tax`,
+  `si`.`item_other_expence`   AS `item_other_expence`,
+  `si`.`item_total`           AS `item_total`,
+  `si`.`cartage`              AS `cartage`,
+  `si`.`discount_amount`      AS `discount_amount`,
+  `si`.`net_amount`           AS `net_amount`,
+  `si`.`cash_received`        AS `cash_received`,
+  `si`.`balance_amount`       AS `balance_amount`,
+  `si`.`base_currency_id`     AS `base_currency_id`,
+  `si`.`conversion_rate`      AS `conversion_rate`,
+  `si`.`base_net_amount`      AS `base_net_amount`,
+  `si`.`is_post`              AS `is_post`,
+  `si`.`post_date`            AS `post_date`,
+  `si`.`post_by_id`           AS `post_by_id`,
+  `si`.`created_at`           AS `created_at`,
+  `si`.`created_by_id`        AS `created_by_id`,
+  `si`.`po_date`              AS `po_date`,
+  `si`.`po_no`                AS `po_no`,
+  `si`.`dc_no`                AS `dc_no`,
+  `si`.`ref_document_id`      AS `ref_document_id`,
+  `si`.`customer_unit_id`     AS `customer_unit_id`,
+  `si`.`customer_remarks`     AS `customer_remarks`,
+  `si`.`allow_out_of_stock`   AS `allow_out_of_stock`,
+  `si`.`customer_name`        AS `customer_name`,
+  `si`.`mobile`               AS `mobile`,
+  `p`.`partner_type`          AS `partner_type`,
+  `p`.`name`                  AS `partner_name`
+FROM (`ins_sale_tax_invoice` `si`
+   LEFT JOIN `core_partner` `p`
+     ON (`p`.`company_id` = `si`.`company_id`
+         AND `p`.`partner_type_id` = `si`.`partner_type_id`
+         AND `p`.`partner_id` = `si`.`partner_id`));
+
+DROP VIEW IF EXISTS `vw_ins_sale_tax_invoice_detail`;
+
+CREATE VIEW `vw_ins_sale_tax_invoice_detail` AS 
+SELECT
+  `sid`.`company_id`                 AS `company_id`,
+  `sid`.`company_branch_id`          AS `company_branch_id`,
+  `sid`.`fiscal_year_id`             AS `fiscal_year_id`,
+  `sid`.`sale_tax_invoice_id`        AS `sale_tax_invoice_id`,
+  `sid`.`sale_tax_invoice_detail_id` AS `sale_tax_invoice_detail_id`,
+  `sid`.`sort_order`                 AS `sort_order`,
+  `sid`.`batch_no`                   AS `batch_no`,
+  `sid`.`product_id`                 AS `product_id`,
+  `sid`.`product_type`               AS `product_type`,
+  `sid`.`part_name`                  AS `part_name`,
+  `sid`.`product_code`               AS `product_code`,
+  `sid`.`ref_document_type_id`       AS `ref_document_type_id`,
+  `sid`.`description`                AS `description`,
+  `sid`.`ref_document_identity`      AS `ref_document_identity`,
+  `sid`.`expiry_date`                AS `expiry_date`,
+  `sid`.`documrnt_curency_id`        AS `documrnt_curency_id`,
+  `sid`.`unit_id`                    AS `unit_id`,
+  `sid`.`qty`                        AS `qty`,
+  `sid`.`rate`                       AS `rate`,
+  `sid`.`amount`                     AS `amount`,
+  `sid`.`discount_percent`           AS `discount_percent`,
+  `sid`.`discount_amount`            AS `discount_amount`,
+  `sid`.`gross_amount`               AS `gross_amount`,
+  `sid`.`other_expence`              AS `other_expence`,
+  `sid`.`tax_percent`                AS `tax_percent`,
+  `sid`.`tax_amount`                 AS `tax_amount`,
+  `sid`.`total_amount`               AS `total_amount`,
+  `sid`.`base_currency_id`           AS `base_currency_id`,
+  `sid`.`conversion_rate`            AS `conversion_rate`,
+  `sid`.`base_total`                 AS `base_total`,
+  `sid`.`remarks`                    AS `remarks`,
+  `sid`.`cog_rate`                   AS `cog_rate`,
+  `sid`.`cog_amount`                 AS `cog_amount`,
+  `sid`.`created_at`                 AS `created_at`,
+  `sid`.`created_by_id`              AS `created_by_id`,
+  `si`.`document_type_id`            AS `document_type_id`,
+  `si`.`document_identity`           AS `document_identity`,
+  `si`.`document_date`               AS `document_date`,
+  `si`.`is_post`                     AS `is_post`,
+  `si`.`partner_type_id`             AS `partner_type_id`,
+  `si`.`partner_id`                  AS `partner_id`,
+  `p`.`product_category_id`          AS `product_category_id`,
+  `pc`.`name`                        AS `product_category`,
+  `p`.`name`                         AS `product_name`,
+  `u`.`name`                         AS `unit`,
+  `pr`.`name`                        AS `partner_name`
+FROM (((((`ins_sale_tax_invoice_detail` `sid`
+       JOIN `ins_sale_tax_invoice` `si`
+         ON (`si`.`sale_tax_invoice_id` = `sid`.`sale_tax_invoice_id`))
+      LEFT JOIN `in0_product` `p`
+        ON (`p`.`company_id` = `sid`.`company_id`
+            AND `p`.`product_id` = `sid`.`product_id`))
+     LEFT JOIN `in0_product_category` `pc`
+       ON (`pc`.`company_id` = `p`.`company_id`
+           AND `pc`.`product_category_id` = `p`.`product_category_id`))
+    LEFT JOIN `in0_unit` `u`
+      ON (`u`.`company_id` = `sid`.`company_id`
+          AND `u`.`unit_id` = `sid`.`unit_id`))
+   LEFT JOIN `core_partner` `pr`
+     ON (`pr`.`company_id` = `si`.`company_id`
+         AND `pr`.`partner_type_id` = `si`.`partner_type_id`
+         AND `pr`.`partner_id` = `si`.`partner_id`));
+
+
+
+
+
+DROP VIEW IF EXISTS `vw_ins_sale_tax_invoice_pending_status`;
+
+CREATE VIEW `vw_ins_sale_tax_invoice_pending_status` AS 
+SELECT
+  `si`.`company_id`           AS `company_id`,
+  `si`.`company_branch_id`    AS `company_branch_id`,
+  `si`.`fiscal_year_id`       AS `fiscal_year_id`,
+  `si`.`sale_tax_invoice_id`  AS `sale_tax_invoice_id`,
+  `si`.`document_type_id`     AS `document_type_id`,
+  `si`.`document_prefix`      AS `document_prefix`,
+  `si`.`document_no`          AS `document_no`,
+  `si`.`document_date`        AS `document_date`,
+  `si`.`document_identity`    AS `document_identity`,
+  `si`.`partner_type_id`      AS `partner_type_id`,
+  `si`.`partner_id`           AS `partner_id`,
+  `si`.`ref_invoice_no`       AS `ref_invoice_no`,
+  `si`.`billty_date`          AS `billty_date`,
+  `si`.`billty_no`            AS `billty_no`,
+  `si`.`manual_ref_no`        AS `manual_ref_no`,
+  `si`.`remarks`              AS `remarks`,
+  `si`.`remarks2`             AS `remarks2`,
+  `si`.`document_currency_id` AS `document_currency_id`,
+  `si`.`item_amount`          AS `item_amount`,
+  `si`.`item_discount`        AS `item_discount`,
+  `si`.`item_tax`             AS `item_tax`,
+  `si`.`item_other_expence`   AS `item_other_expence`,
+  `si`.`item_total`           AS `item_total`,
+  `si`.`cartage`              AS `cartage`,
+  `si`.`discount_amount`      AS `discount_amount`,
+  `si`.`net_amount`           AS `net_amount`,
+  `si`.`cash_received`        AS `cash_received`,
+  `si`.`balance_amount`       AS `balance_amount`,
+  `si`.`base_currency_id`     AS `base_currency_id`,
+  `si`.`conversion_rate`      AS `conversion_rate`,
+  `si`.`base_net_amount`      AS `base_net_amount`,
+  `si`.`is_post`              AS `is_post`,
+  `si`.`post_date`            AS `post_date`,
+  `si`.`post_by_id`           AS `post_by_id`,
+  `si`.`created_at`           AS `created_at`,
+  `si`.`created_by_id`        AS `created_by_id`,
+  `si`.`po_date`              AS `po_date`,
+  `si`.`po_no`                AS `po_no`,
+  `si`.`dc_no`                AS `dc_no`,
+  `si`.`ref_document_id`      AS `ref_document_id`,
+  `si`.`customer_unit_id`     AS `customer_unit_id`,
+  `si`.`customer_remarks`     AS `customer_remarks`,
+  `si`.`customer_name`        AS `customer_name`,
+  `si`.`partner_type`         AS `partner_type`,
+  `si`.`partner_name`         AS `partner_name`,
+  
+  IF(`si`.`net_amount` - ((SELECT IFNULL(SUM(`glt_bank_receipt_detail`.`amount`),0) FROM `glt_bank_receipt_detail` WHERE `glt_bank_receipt_detail`.`ref_document_identity` = `si`.`document_identity`) + (SELECT IFNULL(SUM(`glt_cash_receipt_detail`.`amount`),0) FROM `glt_cash_receipt_detail` WHERE `glt_cash_receipt_detail`.`ref_document_identity` = `si`.`document_identity`)) > 0,'Pending','Cleared') AS `invoice_status`
+FROM `vw_ins_sale_tax_invoice` `si`;
+
+DELIMITER ;

@@ -1,0 +1,1 @@
+INSERT INTO `const_document_type` (`document_type_id`, `document_name`, `document_prefix`, `zero_padding`, `reset_on_fiscal_year`, `table_name`, `route`, `primary_key`) VALUES (NULL, 'Product Issuance', '{FY}-{BC}/JOPI-', '4', 'Yes', 'ins_product_issuance', 'inventory/product_issuance', NULL); 

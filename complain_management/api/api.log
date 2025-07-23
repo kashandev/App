@@ -1,0 +1,3 @@
+[2019-12-10 11:59:23] - 192.185.90.253 - authToken
+Request: {"get":[],"post":{"login_name":"hums_fas","login_password":"12345678"}}
+Response: {"success":false,"token":"335323e20393e2538313e2239313eaf3323935323130313231393130323"}

@@ -1,0 +1,17 @@
+
+
+UPDATE `ins_job_order` `jo`
+    JOIN`ins_sale_tax_invoice` `sti` ON `sti`.`job_order_id` = `jo`.`job_order_id`
+SET `jo`.`repair_status` = 'CLD'
+
+
+
+UPDATE `ins_job_order` `jo`
+    JOIN `ins_sale_tax_invoice` `sti` ON `sti`.`job_order_id` = `jo`.`job_order_id`
+SET `sti`.`print_date` = `jo`.`delivery_date` WHERE `sti`.`print_date` IS NULL
+
+
+
+ALTER TABLE `ins_sale_tax_invoice`
+ADD COLUMN `print_date` DATE DEFAULT NULL
+AFTER `po_date`
