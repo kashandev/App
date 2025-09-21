@@ -58,7 +58,7 @@
                     "locales": {
                         "en": {
                             "title": "Pressearn",
-                            "text": "A crypto-based PHP website that provides an earning platform both for users directly and through sharing with friends. <br> <b>Test Login :</b> <br> <b>Username : user123 <br> Password : user123 </b>",
+                            "text": "A crypto-based PHP website that provides an earning platform both for users directly and through sharing with friends.",
                             "tags": ["Sharing","Earning","Commission"] 
                         }
                     }
@@ -91,7 +91,7 @@
                     "locales": {
                         "en": {
                             "title": "Robotics PK",
-                            "text": "A custom shopping website for electronics items including admin panel with features of catrgory products add to cart checkout etc. <br> <b>Test Login :</b> <br> <b>Username : user123 <br> Password : user123 </b>",
+                            "text": "A custom shopping website for electronics items including admin panel with features of catrgory products add to cart checkout etc.",
                             "tags": ["Add to Cart","Shopping","Invoice"] 
                         }
                     }
@@ -157,7 +157,7 @@
                     "locales": {
                         "en": {
                             "title": "Barcode Management",
-                            "text": "A software to manage a boutique for sale, purchase and generating brands and products labels. <br> <b>Test Login :</b> <br> <b>Username : testuser <br> Password : 12345678 </b>",
+                            "text": "A software to manage a boutique for sale, purchase and generating brands and products labels.",
                             "tags": ["Generate Barcode","Invoices","Reports"]
                         }
                     }
@@ -190,7 +190,7 @@
                     "locales": {
                         "en": {
                             "title": "Complain Management",
-                            "text": "A software to manage a complain for electronics items. <br> <b>Test Login :</b> <br> <b>Username : testuser <br> Password : 12345678 </b>",
+                            "text": "A software to manage a complain for electronics items.",
                             "tags": ["Complain","Invoices","Reports"]
                         }
                     }
@@ -224,7 +224,7 @@
                     "locales": {
                         "en": {
                             "title": "Plot Management",
-                            "text": "A software to manage a plot booking & payments. <br> <b>Test Login :</b> <br> <b>Username : testuser <br> Password : 12345678 </b>",
+                            "text": "A software to manage a plot booking & payments.",
                             "tags": ["Booking","Payments","Invoices","Reports"]
                         }
                     }
@@ -258,7 +258,7 @@
                     "locales": {
                         "en": {
                             "title": "Visitor Management",
-                            "text": "A software to manage a visitor information. <br> <b>Test Login :</b> <br> <b>Username : testuser <br> Password : 12345678 </b>",
+                            "text": "A software to manage a visitor information.",
                             "tags": ["Visitor Info","Invoices","Reports"]
                         }
                     }
@@ -291,7 +291,7 @@
                     "locales": {
                         "en": {
                             "title": "CRM",
-                            "text": "A software for managing customers, quotation & leeds etc. <br> <b>Test Login :</b> <br> <b>Username : testuser <br> Password : 12345678 </b>",
+                            "text": "A software for managing customers, quotation & leeds etc.",
                             "tags": ["Quotation", "Leeds","Invoice"]
                         }
                     }
